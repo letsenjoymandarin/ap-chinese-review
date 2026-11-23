@@ -1,0 +1,2772 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="showroom">
+  <title>AP 中文核心詞彙複習與單元測驗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Showroom) */
+      --background: #fbfbfd;
+      --surface-container-low: #f5f5f7;
+      --surface-container: #e8e8ed;
+      --surface-container-high: #dcdce1;
+
+      /* Ink */
+      --on-surface: #1d1d1f;
+      --on-surface-variant: #6e6e73;
+
+      /* Rules */
+      --outline: #d2d2d7;
+      --outline-variant: #e5e5ea;
+
+      /* Accents */
+      --primary: #006bd6;
+      --on-primary: #ffffff;
+      --primary-container: #e8f1fd;
+      --on-primary-container: #0058b0;
+      --secondary: #bf4800;
+      --secondary-container: #fff0e6;
+      --tertiary: #1d1d1f;
+      --error: #d70015;
+      --error-container: #fdebec;
+      --on-error: #ffffff;
+
+      /* Semantic */
+      --positive: #248a3d;
+      --positive-container: #eaf6ed;
+      --warning: #b25000;
+      --warning-container: #fff4e5;
+      --focus: #006bd6;
+
+      /* Data series */
+      --data-1: #006bd6;
+      --data-2: #bf4800;
+      --data-3: #248a3d;
+      --data-4: #8944ab;
+      --data-context: #aeaeb2;
+
+      /* Fonts */
+      --font-headline: 'Noto Sans TC', 'Noto Sans SC', 'Inter Tight', sans-serif;
+      --font-body: 'Noto Sans TC', 'Noto Sans SC', 'Inter', sans-serif;
+      --font-label: 'Noto Sans TC', 'Noto Sans SC', 'Inter', sans-serif;
+      --font-latin: 'Inter', sans-serif;
+
+      /* Shape */
+      --rounded: 9999px;
+      --rounded-md: 0.75rem;
+      --rounded-lg: 1.25rem;
+      --rounded-full: 9999px;
+
+      /* Effects */
+      --headline-tracking: -0.02em;
+      --figure-tracking: -0.03em;
+      --tile-shadow-hover: 0 8px 28px rgb(0 0 0 / 0.08);
+      --card-shadow: 0 12px 32px rgb(0 0 0 / 0.06);
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.35rem + 1.1vw, 2.25rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+    header { position: static !important; }
+    button, input, select, textarea { font-family: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .app-shell {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: var(--space-lg);
+    }
+
+    /* Top Header */
+    .top-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--outline-variant);
+      margin-bottom: var(--space-lg);
+    }
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .eyebrow {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .app-title {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 700;
+      letter-spacing: var(--headline-tracking);
+      line-height: 1.15;
+      color: var(--on-surface);
+    }
+    .app-subtitle {
+      margin: 0;
+      color: var(--on-surface-variant);
+      font-size: var(--body-size);
+    }
+
+    .header-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    /* Prominent Script Toggle */
+    .script-pill-group {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-container);
+      padding: var(--space-xs);
+      border-radius: var(--rounded);
+      gap: var(--space-xs);
+    }
+    .script-label-tag {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      padding-inline: var(--space-sm) var(--space-xs);
+    }
+    .script-btn {
+      min-height: 44px;
+      padding: 0 var(--space-lg);
+      border: 0;
+      border-radius: var(--rounded);
+      background: transparent;
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-in-out), color var(--dur-short) var(--ease-in-out);
+    }
+    .script-btn[aria-pressed="true"] {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .script-btn:hover:not([aria-pressed="true"]) {
+      background: var(--surface-container-high);
+    }
+
+    /* Global progress summary pill */
+    .overall-progress-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--surface-container-low);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      min-height: 44px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--on-surface);
+    }
+    .overall-progress-pill strong {
+      color: var(--primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Two-column Workspace Grid */
+    .page-grid {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+      overflow: hidden;
+      padding: 0;
+      max-width: none;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Compact Narrow Sidebar */
+    .unit-sidebar {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .sidebar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: var(--space-xs);
+      margin-bottom: var(--space-xs);
+    }
+    .sidebar-title {
+      margin: 0;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .sidebar-count {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums;
+    }
+    .unit-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .unit-item-btn {
+      width: 100%;
+      min-height: 44px;
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-sm);
+      border: 0;
+      border-radius: var(--rounded-md);
+      background: transparent;
+      color: var(--on-surface);
+      text-align: left;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .unit-item-btn:hover {
+      background: var(--surface-container);
+    }
+    .unit-item-btn[aria-current="true"] {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 600;
+    }
+    .unit-num {
+      font-family: var(--font-latin);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+    }
+    .unit-item-btn[aria-current="true"] .unit-num {
+      color: var(--on-primary-container);
+    }
+    .unit-name {
+      font-size: 0.875rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .unit-badge {
+      font-family: var(--font-latin);
+      font-size: var(--label-size);
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface-variant);
+      padding: 2px 6px;
+      border-radius: var(--rounded);
+      background: var(--background);
+    }
+    .unit-badge.is-complete {
+      background: var(--positive-container);
+      color: var(--positive);
+      font-weight: 600;
+    }
+
+    .sidebar-footer {
+      margin-top: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .btn-ghost-danger {
+      min-height: 44px;
+      border: 0;
+      border-radius: var(--rounded);
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0 var(--space-md);
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .btn-ghost-danger:hover {
+      background: var(--error-container);
+      color: var(--error);
+    }
+
+    /* Mobile Unit Selector (hidden on desktop) */
+    .mobile-unit-bar {
+      display: none;
+      margin-bottom: var(--space-md);
+    }
+    .mobile-select-label {
+      display: block;
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .mobile-unit-select {
+      width: 100%;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-xl) var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      font-weight: 500;
+    }
+
+    /* Main Workspace */
+    .study-main {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    /* Unit Header Tile */
+    .unit-banner {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .unit-info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      max-width: 62ch;
+    }
+    .unit-kicker {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    .unit-heading {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 700;
+      letter-spacing: var(--headline-tracking);
+      color: var(--on-surface);
+    }
+    .unit-desc {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Mode Segmented Switch */
+    .mode-switch {
+      display: inline-flex;
+      background: var(--surface-container);
+      padding: var(--space-xs);
+      border-radius: var(--rounded);
+      gap: var(--space-xs);
+    }
+    .mode-btn {
+      min-height: 44px;
+      padding: 0 var(--space-lg);
+      border: 0;
+      border-radius: var(--rounded);
+      background: transparent;
+      color: var(--on-surface);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-short) var(--ease-in-out), color var(--dur-short) var(--ease-in-out);
+    }
+    .mode-btn[aria-selected="true"] {
+      background: var(--background);
+      color: var(--primary);
+      box-shadow: var(--card-shadow);
+    }
+
+    /* Unit KPI Metrics Row */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .metric-tile {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      text-align: center;
+    }
+    .metric-label {
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .metric-value {
+      font-family: var(--font-latin);
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      font-weight: 700;
+      letter-spacing: var(--figure-tracking);
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+      line-height: 1.1;
+    }
+    .metric-sub {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      margin-top: var(--space-xs);
+    }
+
+    /* Filter Bar */
+    .study-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .chip-btn {
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      border: 0;
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .chip-btn[aria-pressed="true"] {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 600;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .btn-pill-secondary {
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      border: 0;
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .btn-pill-secondary:hover {
+      background: var(--surface-container-high);
+    }
+    .btn-pill-primary {
+      min-height: 44px;
+      padding: 0 var(--space-lg);
+      border: 0;
+      border-radius: var(--rounded);
+      background: var(--primary);
+      color: var(--on-primary);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      transition: opacity var(--dur-micro) var(--ease-out);
+    }
+    .btn-pill-primary:hover { opacity: 0.9; }
+    .btn-pill-primary:disabled, .btn-pill-secondary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* Extra-Large Flashcard Stage */
+    .flashcard-stage {
+      perspective: 1200px;
+    }
+    .flashcard-shell {
+      position: relative;
+      width: 100%;
+      min-height: 390px;
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+      user-select: none;
+    }
+    .flashcard-shell:hover {
+      box-shadow: var(--tile-shadow-hover);
+      transform: translateY(-2px);
+    }
+    .flashcard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .card-counter {
+      font-family: var(--font-latin);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums;
+    }
+    .card-badges {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .status-tag.is-mastered {
+      background: var(--positive-container);
+      color: var(--positive);
+    }
+    .status-tag.is-review {
+      background: var(--warning-container);
+      color: var(--warning);
+    }
+    .subtag-pill {
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .flashcard-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-xl) var(--space-md);
+      gap: var(--space-md);
+    }
+    .card-hanzi {
+      font-family: var(--font-headline);
+      font-size: clamp(2.75rem, 2.2rem + 3.2vw, 4.75rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--on-surface);
+      word-break: keep-all;
+    }
+    .card-pinyin {
+      font-family: var(--font-latin);
+      font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.875rem);
+      font-weight: 500;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+    .card-english {
+      font-family: var(--font-latin);
+      font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+      max-width: 48ch;
+      line-height: 1.4;
+    }
+    .card-answer-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+      animation: fadeSlideUp var(--dur-short) var(--ease-out);
+    }
+    .card-answer-block[hidden] {
+      display: none;
+    }
+    .flip-hint {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .flashcard-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+    }
+    .audio-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .speech-status {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* Navigation & Mastery Controls */
+    .card-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .nav-pair, .mastery-pair {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .btn-mastered {
+      min-height: 44px;
+      padding: 0 var(--space-lg);
+      border: 0;
+      border-radius: var(--rounded);
+      background: var(--positive-container);
+      color: var(--positive);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .btn-mastered[aria-pressed="true"] {
+      background: var(--positive);
+      color: var(--on-primary);
+    }
+    .btn-review {
+      min-height: 44px;
+      padding: 0 var(--space-lg);
+      border: 0;
+      border-radius: var(--rounded);
+      background: var(--warning-container);
+      color: var(--warning);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .btn-review[aria-pressed="true"] {
+      background: var(--warning);
+      color: var(--on-primary);
+    }
+
+    /* Vocabulary Quick-Table Section */
+    .vocab-list-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .vocab-list-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .vocab-list-head h3 {
+      margin: 0;
+      font-size: var(--subhead-size);
+      font-weight: 700;
+    }
+    .search-field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      min-width: 220px;
+    }
+    .search-field label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    .search-input {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      font-size: 0.9375rem;
+    }
+    .vocab-table-wrap {
+      overflow-x: auto;
+    }
+    .vocab-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .vocab-table th {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .vocab-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: middle;
+    }
+    .vocab-row-btn {
+      background: transparent;
+      border: 0;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded-md);
+      color: var(--primary);
+      font-weight: 600;
+      cursor: pointer;
+      min-height: 44px;
+      text-align: left;
+    }
+    .vocab-row-btn:hover {
+      background: var(--primary-container);
+    }
+
+    /* Unit Test Panel */
+    .quiz-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .quiz-progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: var(--rounded);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+    .quiz-prompt-card {
+      background: var(--background);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .quiz-q-type {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    .quiz-word {
+      font-family: var(--font-headline);
+      font-size: clamp(2.25rem, 1.8rem + 2vw, 3.5rem);
+      font-weight: 700;
+      color: var(--on-surface);
+      line-height: 1.2;
+    }
+    .quiz-sub {
+      font-family: var(--font-latin);
+      font-size: 1.125rem;
+      color: var(--on-surface-variant);
+    }
+    .quiz-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .quiz-option-btn {
+      min-height: 60px;
+      padding: var(--space-md) var(--space-lg);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded-lg);
+      background: var(--background);
+      color: var(--on-surface);
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .quiz-option-btn:hover:not(:disabled) {
+      background: var(--primary-container);
+      box-shadow: var(--tile-shadow-hover);
+    }
+    .quiz-option-btn.is-correct {
+      background: var(--positive-container);
+      color: var(--positive);
+      border-color: var(--positive);
+      font-weight: 600;
+    }
+    .quiz-option-btn.is-wrong {
+      background: var(--error-container);
+      color: var(--error);
+      border-color: var(--error);
+      font-weight: 600;
+    }
+    .option-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-latin);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .quiz-feedback-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded-md);
+      background: var(--background);
+    }
+    .quiz-feedback-bar.is-correct {
+      background: var(--positive-container);
+      color: var(--positive);
+    }
+    .quiz-feedback-bar.is-wrong {
+      background: var(--error-container);
+      color: var(--error);
+    }
+
+    /* Quiz Results & Review */
+    .quiz-result-hero {
+      text-align: center;
+      padding: var(--space-xl);
+      background: var(--background);
+      border-radius: var(--rounded-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .result-score-big {
+      font-family: var(--font-latin);
+      font-size: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: var(--figure-tracking);
+      line-height: 1.05;
+    }
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .review-row {
+      background: var(--background);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .review-word {
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+    .review-detail {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Empty State */
+    .empty-state {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-2xl) var(--space-lg);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .page-grid { grid-template-columns: 220px minmax(0, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .app-shell { padding: var(--space-md); }
+      .page-grid { grid-template-columns: 1fr; }
+      aside.unit-sidebar { display: none; }
+      .mobile-unit-bar { display: block; }
+      .metrics-row { grid-template-columns: 1fr; }
+      .quiz-options-grid { grid-template-columns: 1fr; }
+      .flashcard-shell { min-height: 320px; padding: var(--space-lg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-header">
+      <div class="brand-block">
+        <span class="eyebrow" id="ui-eyebrow">AP 中文核心詞彙精選</span>
+        <h1 class="app-title" id="ui-title">AP 中文詞彙複習與單元測驗</h1>
+        <p class="app-subtitle" id="ui-subtitle">14 大主題詞彙 ＋ 口語演講與寫作連接詞，支援繁簡即時切換與語音朗讀。</p>
+      </div>
+
+      <div class="header-controls">
+        <div class="script-pill-group" role="group" aria-label="字體切換">
+          <span class="script-label-tag" id="ui-script-label">字體</span>
+          <button type="button" class="script-btn" id="btn-trad" aria-pressed="true" onclick="setScriptMode('trad')">繁體</button>
+          <button type="button" class="script-btn" id="btn-simp" aria-pressed="false" onclick="setScriptMode('simp')">簡體</button>
+        </div>
+
+        <div class="overall-progress-pill" id="overall-progress-pill">
+          <span id="ui-total-label">總掌握進度</span>
+          <strong id="overall-mastered-text">0 / 0</strong>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-unit-bar">
+      <label class="mobile-select-label" for="mobile-unit-select" id="ui-mobile-unit-label">選擇學習單元</label>
+      <select id="mobile-unit-select" class="mobile-unit-select" onchange="selectUnit(this.value)"></select>
+    </div>
+
+    <div class="page-grid">
+      <aside class="unit-sidebar" aria-label="單元目錄">
+        <div class="sidebar-head">
+          <h2 class="sidebar-title" id="ui-sidebar-title">主題單元目錄</h2>
+          <span class="sidebar-count" id="sidebar-unit-count">16 單元</span>
+        </div>
+        <ul class="unit-list" id="unit-list"></ul>
+        <div class="sidebar-footer">
+          <button type="button" class="btn-ghost-danger" id="btn-reset-progress" onclick="handleResetProgress(this)">重設全部學習進度</button>
+        </div>
+      </aside>
+
+      <main class="study-main">
+        <section class="unit-banner" aria-labelledby="unit-heading">
+          <div class="unit-info">
+            <span class="unit-kicker" id="unit-kicker">單元 01</span>
+            <h2 class="unit-heading" id="unit-heading">環境保護</h2>
+            <p class="unit-desc" id="unit-desc"></p>
+          </div>
+          <div class="mode-switch" role="tablist" aria-label="學習模式">
+            <button type="button" role="tab" class="mode-btn" id="tab-flashcards" aria-selected="true" onclick="setMode('flashcards')">生詞卡複習</button>
+            <button type="button" role="tab" class="mode-btn" id="tab-quiz" aria-selected="false" onclick="setMode('quiz')">單元考試</button>
+          </div>
+        </section>
+
+        <section class="metrics-row" aria-label="單元學習統計">
+          <div class="metric-tile">
+            <div class="metric-label" id="ui-m1-label">已掌握詞彙</div>
+            <div class="metric-value" id="metric-mastered">0 / 0</div>
+            <div class="metric-sub" id="metric-mastered-pct">0% 完成</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-label" id="ui-m2-label">標記複習中</div>
+            <div class="metric-value" id="metric-reviewing">0</div>
+            <div class="metric-sub" id="ui-m2-sub">待加強字詞</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-label" id="ui-m3-label">單元考試最高分</div>
+            <div class="metric-value" id="metric-best-score">—</div>
+            <div class="metric-sub" id="metric-attempts">尚未作答</div>
+          </div>
+        </section>
+
+        <!-- Flashcard Mode -->
+        <section id="panel-flashcards" aria-label="生詞卡複習區">
+          <div class="study-toolbar">
+            <div class="filter-chips" role="group" aria-label="詞彙篩選">
+              <button type="button" class="chip-btn" id="filter-all" aria-pressed="true" onclick="setCardFilter('all')">全部詞彙</button>
+              <button type="button" class="chip-btn" id="filter-review" aria-pressed="false" onclick="setCardFilter('review')">複習中</button>
+              <button type="button" class="chip-btn" id="filter-unmastered" aria-pressed="false" onclick="setCardFilter('unmastered')">尚未掌握</button>
+            </div>
+            <div class="toolbar-actions">
+              <button type="button" class="btn-pill-secondary" id="btn-shuffle" onclick="shuffleDeck()">隨機洗牌</button>
+            </div>
+          </div>
+
+          <div id="flashcard-empty" class="empty-state" hidden>
+            <p id="empty-state-msg">此篩選分類目前沒有生詞卡。</p>
+            <button type="button" class="btn-pill-primary" id="btn-show-all-cards" onclick="setCardFilter('all')">顯示本單元全部詞彙</button>
+          </div>
+
+          <div id="flashcard-active-area">
+            <div class="flashcard-stage" style="margin-top: var(--space-md);">
+              <div class="flashcard-shell" id="flashcard-shell" role="button" tabindex="0" aria-label="點擊翻轉生詞卡" onclick="flipCard()" onkeydown="handleCardKey(event)">
+                <div class="flashcard-top">
+                  <span class="card-counter" id="card-counter">1 / 36</span>
+                  <div class="card-badges">
+                    <span class="subtag-pill" id="card-subtag" hidden></span>
+                    <span class="status-tag" id="card-status-tag">未標記</span>
+                  </div>
+                </div>
+
+                <div class="flashcard-center">
+                  <div class="card-hanzi" id="card-hanzi">環境</div>
+                  <div class="card-answer-block" id="card-answer-block" hidden>
+                    <div class="card-pinyin" id="card-pinyin">huánjìng</div>
+                    <div class="card-english" id="card-english">Environment</div>
+                  </div>
+                  <div class="flip-hint" id="card-flip-hint">點擊卡片或按空白鍵顯示拼音與釋義</div>
+                </div>
+
+                <div class="flashcard-bottom" onclick="event.stopPropagation()">
+                  <div class="audio-group">
+                    <button type="button" class="btn-pill-secondary" id="btn-speak" onclick="speakCurrentWord()">朗讀發音</button>
+                    <span class="speech-status" id="speech-status"></span>
+                  </div>
+                  <button type="button" class="btn-pill-secondary" id="btn-flip-explicit" onclick="flipCard()">翻轉卡片</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-controls-bar" style="margin-top: var(--space-md);">
+              <div class="nav-pair">
+                <button type="button" class="btn-pill-secondary" id="btn-prev" onclick="prevCard()">上一張</button>
+                <button type="button" class="btn-pill-primary" id="btn-next" onclick="nextCard()">下一張</button>
+              </div>
+              <div class="mastery-pair">
+                <button type="button" class="btn-review" id="btn-mark-review" aria-pressed="false" onclick="toggleMastery('review')">標記複習中</button>
+                <button type="button" class="btn-mastered" id="btn-mark-mastered" aria-pressed="false" onclick="toggleMastery('mastered')">標記已掌握</button>
+              </div>
+            </div>
+          </div>
+
+          <section class="vocab-list-panel" style="margin-top: var(--space-xl);" aria-label="單元詞彙總表">
+            <div class="vocab-list-head">
+              <h3 id="ui-list-title">本單元詞彙一覽</h3>
+              <div class="search-field">
+                <label for="vocab-search" id="ui-search-label">搜尋詞彙、拼音或英文</label>
+                <input type="search" id="vocab-search" class="search-input" placeholder="輸入關鍵字…" oninput="renderVocabTable()">
+              </div>
+            </div>
+            <div class="vocab-table-wrap">
+              <table class="vocab-table">
+                <thead>
+                  <tr>
+                    <th id="th-word">詞彙</th>
+                    <th id="th-pinyin">拼音</th>
+                    <th id="th-eng">英文釋義</th>
+                    <th id="th-status">狀態</th>
+                  </tr>
+                </thead>
+                <tbody id="vocab-table-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <!-- Unit Quiz Mode -->
+        <section id="panel-quiz" class="quiz-panel" hidden aria-label="單元考試區">
+          <div id="quiz-active-view">
+            <div class="quiz-progress-row">
+              <span class="card-counter" id="quiz-q-counter">第 1 / 10 題</span>
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="quiz-progress-fill" style="width: 10%"></div>
+              </div>
+              <span class="card-counter" id="quiz-live-score">得分：0</span>
+            </div>
+
+            <div class="quiz-prompt-card" style="margin-top: var(--space-lg);">
+              <span class="quiz-q-type" id="quiz-q-type">請選出正確的英文釋義與拼音</span>
+              <div class="quiz-word" id="quiz-word">環境</div>
+              <div class="quiz-sub" id="quiz-sub"></div>
+              <button type="button" class="btn-pill-secondary" id="btn-quiz-speak" onclick="speakQuizWord()">聽取發音</button>
+            </div>
+
+            <div class="quiz-options-grid" id="quiz-options-grid" style="margin-top: var(--space-lg);"></div>
+
+            <div class="quiz-feedback-bar" id="quiz-feedback-bar" hidden style="margin-top: var(--space-lg);">
+              <span id="quiz-feedback-text"></span>
+              <button type="button" class="btn-pill-primary" id="btn-quiz-next" onclick="nextQuizQuestion()">下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz-result-view" hidden>
+            <div class="quiz-result-hero">
+              <span class="unit-kicker" id="ui-result-kicker">測驗完成</span>
+              <div class="result-score-big" id="result-score-big">80%</div>
+              <p id="result-summary-text" style="margin: 0; color: var(--on-surface-variant);"></p>
+              <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md);">
+                <button type="button" class="btn-pill-primary" id="btn-retake-quiz" onclick="startUnitQuiz()">再測一次</button>
+                <button type="button" class="btn-pill-secondary" id="btn-back-study" onclick="setMode('flashcards')">返回生詞卡</button>
+              </div>
+            </div>
+
+            <div style="margin-top: var(--space-lg);">
+              <h3 id="ui-review-heading" style="margin: 0 0 var(--space-md) 0;">逐題檢討</h3>
+              <div class="review-list" id="quiz-review-list"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer style="margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--outline-variant); color: var(--on-surface-variant); font-size: 0.8125rem; text-align: center;">
+      <span id="ui-source-note">資料來源：《Mastering AP Chinese Vocabulary》高分核心詞彙精選（14 大主題詞彙、口語演講與寫作連接詞）。學習紀錄自動儲存於目前工作區。</span>
+    </footer>
+  </div>
+
+  <api-shim></api-shim>
+  <script>
+    const UNITS = [
+      {
+        id: `env`,
+        num: `01`,
+        tTitle: `環境保護`,
+        sTitle: `环境保护`,
+        enTitle: `Environment`,
+        tDesc: `聚焦全球氣候變遷、綠色生態、再生能源與環境治理，為文化演講與議論寫作核心背景主題。`,
+        sDesc: `聚焦全球气候变迁、绿色生态、可再生能源与环境治理，为文化演讲与议论文写作核心背景主题。`,
+        items: [
+          [`環境`, `环境`, `huánjìng`, `Environment`],
+          [`污染`, `污染`, `wūrǎn`, `Pollution`],
+          [`氣候變化`, `气候变化`, `qìhòu biànhuà`, `Climate change`],
+          [`節約`, `节约`, `jiéyuē`, `To save (resources)`],
+          [`可持續發展`, `可持续发展`, `kě chíxù fāzhǎn`, `Sustainable development`],
+          [`綠色`, `绿色`, `lǜsè`, `Green (environmentally friendly)`],
+          [`生態系統`, `生态系统`, `shēngtài xìtǒng`, `Ecosystem`],
+          [`資源`, `资源`, `zīyuán`, `Resources`],
+          [`溫室效應`, `温室效应`, `wēnshì xiàoyìng`, `Greenhouse effect`],
+          [`回收`, `回收`, `huíshōu`, `Recycling`],
+          [`保護`, `保护`, `bǎohù`, `To protect`],
+          [`節能`, `节能`, `jié néng`, `Energy saving`],
+          [`二氧化碳`, `二氧化碳`, `èryǎnghuàtàn`, `Carbon dioxide`],
+          [`再生資源`, `再生资源`, `zàishēng zīyuán`, `Renewable resources`],
+          [`森林`, `森林`, `sēnlín`, `Forest`],
+          [`污染物`, `污染物`, `wūrǎn wù`, `Pollutants`],
+          [`動植物`, `动植物`, `dòng zhíwù`, `Flora and fauna`],
+          [`自然`, `自然`, `zìrán`, `Nature`],
+          [`全球變暖`, `全球变暖`, `quánqiú biàn nuǎn`, `Global warming`],
+          [`生態平衡`, `生态平衡`, `shēngtài pínghéng`, `Ecological balance`],
+          [`溫度`, `温度`, `wēndù`, `Temperature`],
+          [`空氣`, `空气`, `kōngqì`, `Air`],
+          [`水污染`, `水污染`, `shuǐ wūrǎn`, `Water pollution`],
+          [`沙漠化`, `沙漠化`, `shāmò huà`, `Desertification`],
+          [`保護區`, `保护区`, `bǎohù qū`, `Conservation area`],
+          [`環保`, `环保`, `huánbǎo`, `Environmental protection`],
+          [`再利用`, `再利用`, `zài lìyòng`, `Reuse`],
+          [`生物多樣性`, `生物多样性`, `shēngwù duōyàngxìng`, `Biodiversity`],
+          [`垃圾`, `垃圾`, `lājī`, `Garbage`],
+          [`污染源`, `污染源`, `wūrǎn yuán`, `Source of pollution`],
+          [`可再生能源`, `可再生能源`, `kě zàishēng néngyuán`, `Renewable energy`],
+          [`廢物`, `废物`, `fèiwù`, `Waste`],
+          [`綠色能源`, `绿色能源`, `lǜsè néngyuán`, `Green energy`],
+          [`環境保護`, `环境保护`, `huánjìng bǎohù`, `Environmental conservation`],
+          [`風能`, `风能`, `fēngnéng`, `Wind energy`],
+          [`太陽能`, `太阳能`, `tàiyángnéng`, `Solar energy`]
+        ]
+      },
+      {
+        id: `tradition`,
+        num: `02`,
+        tTitle: `傳統與習俗`,
+        sTitle: `传统与习俗`,
+        enTitle: `Tradition & Customs`,
+        tDesc: `涵蓋中國四大傳統節慶、民俗儀式、社交禮儀與文化符號，為 AP 文化演講最高頻主題。`,
+        sDesc: `涵盖中国四大传统节庆、民俗仪式、社交礼仪与文化符号，为 AP 文化演讲最高频主题。`,
+        items: [
+          [`傳統`, `传统`, `chuántǒng`, `Tradition`],
+          [`習俗`, `习俗`, `xísú`, `Custom`],
+          [`節日`, `节日`, `jiérì`, `Festival`],
+          [`禮儀`, `礼仪`, `lǐyí`, `Etiquette`],
+          [`祭祀`, `祭祀`, `jìsì`, `Sacrifice (ritual)`],
+          [`婚禮`, `婚礼`, `hūnlǐ`, `Wedding`],
+          [`敬老`, `敬老`, `jìng lǎo`, `Respect for the elderly`],
+          [`年夜飯`, `年夜饭`, `nián yè fàn`, `New Year's Eve dinner`],
+          [`龍舟`, `龙舟`, `lóng zhōu`, `Dragon boat`],
+          [`紅包`, `红包`, `hóngbāo`, `Red envelope`],
+          [`廟會`, `庙会`, `miàohuì`, `Temple fair`],
+          [`拜年`, `拜年`, `bàinián`, `New Year greeting`],
+          [`茶道`, `茶道`, `chá dào`, `Tea ceremony`],
+          [`中秋節`, `中秋节`, `Zhōngqiūjié`, `Mid-Autumn Festival`],
+          [`龍`, `龙`, `lóng`, `Dragon`],
+          [`元宵節`, `元宵节`, `Yuánxiāojié`, `Lantern Festival`],
+          [`祖先`, `祖先`, `zǔxiān`, `Ancestors`],
+          [`節慶`, `节庆`, `jiéqìng`, `Holiday / celebration`],
+          [`壽宴`, `寿宴`, `shòu yàn`, `Birthday banquet`],
+          [`婚嫁`, `婚嫁`, `hūnjià`, `Marriage and wedding`],
+          [`年年有餘`, `年年有余`, `nián nián yǒu yú`, `Have abundance every year`],
+          [`天命`, `天命`, `tiānmìng`, `Destiny, heaven's will`],
+          [`端午節`, `端午节`, `Duānwǔjié`, `Dragon Boat Festival`],
+          [`打掃`, `打扫`, `dǎsǎo`, `Sweep / Clean`],
+          [`青花瓷`, `青花瓷`, `qīnghuā cí`, `Blue and white porcelain`],
+          [`傳統服飾`, `传统服饰`, `chuántǒng fúshì`, `Traditional clothing`],
+          [`成龍成鳳`, `成龙成凤`, `chéng lóng chéng fèng`, `To achieve greatness`],
+          [`風水`, `风水`, `fēngshuǐ`, `Feng Shui`],
+          [`家宴`, `家宴`, `jiā yàn`, `Family banquet`],
+          [`獨生子女`, `独生子女`, `dúshēng zǐnǚ`, `Only child`],
+          [`回族`, `回族`, `Huízú`, `Hui ethnic group`],
+          [`社交禮儀`, `社交礼仪`, `shèjiāo lǐyí`, `Social etiquette`],
+          [`清明節`, `清明节`, `Qīngmíngjié`, `Qingming Festival`],
+          [`傳統節日`, `传统节日`, `chuántǒng jiérì`, `Traditional holidays`],
+          [`放鞭炮`, `放鞭炮`, `fàng biānpào`, `Set off firecrackers`],
+          [`合家團圓`, `合家团圆`, `héjiā tuányuán`, `Family reunion`]
+        ]
+      },
+      {
+        id: `tech`,
+        num: `03`,
+        tTitle: `科學與技術`,
+        sTitle: `科学与技术`,
+        enTitle: `Technology`,
+        tDesc: `收錄現代資訊科技、人工智慧、大數據、新興數位生活與通訊科技專題詞彙。`,
+        sDesc: `收录现代信息技术、人工智能、大数据、新兴数字生活与通讯科技专题词汇。`,
+        items: [
+          [`科技`, `科技`, `kējì`, `Technology`],
+          [`人工智慧`, `人工智能`, `réngōng zhìnéng`, `Artificial Intelligence (AI)`],
+          [`網際網路`, `互联网`, `hùliánwǎng`, `Internet`],
+          [`雲端運算`, `云计算`, `yún jìsuàn`, `Cloud Computing`],
+          [`虛擬實境`, `虚拟现实`, `xūnǐ xiànshí`, `Virtual Reality (VR)`],
+          [`自動化`, `自动化`, `zìdònghuà`, `Automation`],
+          [`大數據`, `大数据`, `dà shùjù`, `Big Data`],
+          [`網路安全`, `网络安全`, `wǎngluò ānquán`, `Cybersecurity`],
+          [`機器人`, `机器人`, `jīqìrén`, `Robot`],
+          [`軟體`, `软件`, `ruǎnjiàn`, `Software`],
+          [`硬體`, `硬件`, `yìngjiàn`, `Hardware`],
+          [`資料庫`, `数据库`, `shùjùkù`, `Database`],
+          [`程式設計`, `编程`, `biānchéng`, `Programming`],
+          [`寫程式`, `编码`, `biānmǎ`, `Coding`],
+          [`網路攻擊`, `网络攻击`, `wǎngluò gōngjí`, `Cyber Attack`],
+          [`電子支付`, `电子支付`, `diànzǐ zhīfù`, `Electronic Payment`],
+          [`電子貨幣`, `数字货币`, `shùzì huòbì`, `Digital Currency`],
+          [`人臉辨識`, `人脸识别`, `rénliǎn shìbié`, `Facial Recognition`],
+          [`無人駕駛`, `无人驾驶`, `wúrén jiàshǐ`, `Autonomous Driving`]
+        ]
+      },
+      {
+        id: `rules`,
+        num: `04`,
+        tTitle: `規則與規章`,
+        sTitle: `规则与规章`,
+        enTitle: `Rules & Regulations`,
+        tDesc: `閱讀測驗與日常生活情境必備之校規、圖書館與公共場所管理守則。`,
+        sDesc: `阅读测验与日常生活情境必备之校规、图书馆与公共场所管理守则。`,
+        items: [
+          [`按時到校`, `按时到校`, `ànshí dàoxiào`, `Arrive at school on time`],
+          [`禁止打架`, `禁止打架`, `jìnzhǐ dǎjià`, `Fighting is prohibited`],
+          [`不准作弊`, `不准作弊`, `bù zhǔn zuòbì`, `No cheating`],
+          [`保持教室整潔`, `保持教室整洁`, `bǎochí jiàoshì zhěngjié`, `Keep the classroom clean`],
+          [`上課時禁止使用手機`, `上课时禁止使用手机`, `shàngkè shí jìnzhǐ shǐyòng shǒujī`, `No phone use during class`],
+          [`尊重老師`, `尊重老师`, `zūnzhòng lǎoshī`, `Respect teachers`],
+          [`穿校服`, `穿校服`, `chuān xiàofú`, `Wear the school uniform`],
+          [`不准在教室裡吃東西`, `不准在教室里吃东西`, `bù zhǔn zài jiàoshì lǐ chī dōngxi`, `No eating in classroom`],
+          [`放學後準時回家`, `放学后准时回家`, `fàngxué hòu zhǔnshí huíjiā`, `Go home on time after school`],
+          [`保持安靜`, `保持安静`, `bǎochí ānjìng`, `Keep quiet (Library)`],
+          [`禁止飲食`, `禁止饮食`, `jìnzhǐ yǐnshí`, `No food or drinks allowed`],
+          [`按時歸還書籍`, `按时归还书籍`, `ànshí guīhuán shūjí`, `Return books on time`],
+          [`不得損壞書籍`, `不得损坏书籍`, `bùdé sǔnhuài shūjí`, `Do not damage books`],
+          [`使用電腦需遵守規定`, `使用电脑需遵守规定`, `shǐyòng diànnǎo xū zūnshǒu guīdìng`, `Follow computer usage rules`],
+          [`禁止大聲打電話`, `禁止大声打电话`, `jìnzhǐ dàshēng dǎ diànhuà`, `No loud phone calls`],
+          [`書籍閱覽後請歸位`, `书籍阅览后请归位`, `shūjí yuèlǎn hòu qǐng guīwèi`, `Return books to place after reading`],
+          [`不得佔座`, `不得占座`, `bùdé zhànzuò`, `No seat reserving`],
+          [`禁止觸摸展品`, `禁止触摸展品`, `jìnzhǐ chùmō zhǎnpǐn`, `Do not touch exhibits (Museum)`],
+          [`不得使用閃光燈`, `不得使用闪光灯`, `bùdé shǐyòng shǎnguāngdēng`, `No flash photography`],
+          [`禁止吸煙`, `禁止吸烟`, `jìnzhǐ xīyān`, `No smoking`],
+          [`遵守參觀路線`, `遵守参观路线`, `zūnshǒu cānguān lùxiàn`, `Follow the visiting route`],
+          [`禁止奔跑`, `禁止奔跑`, `jìnzhǐ bēnpǎo`, `No running`],
+          [`小心貴重物品`, `小心贵重物品`, `xiǎoxīn guìzhòng wùpǐn`, `Take care of valuable items`]
+        ]
+      },
+      {
+        id: `rent`,
+        num: `05`,
+        tTitle: `租房實用`,
+        sTitle: `租房实用`,
+        enTitle: `Rent a House`,
+        tDesc: `生活實用專題，涵蓋房型、合約、設施配備與租金繳納常用詞彙。`,
+        sDesc: `生活实用专题，涵盖房型、合约、设施配备与租金缴纳常用词汇。`,
+        items: [
+          [`租房`, `租房`, `zūfáng`, `Rent a house`],
+          [`房東`, `房东`, `fángdōng`, `Landlord`],
+          [`房客`, `房客`, `fángkè`, `Tenant`],
+          [`租金`, `租金`, `zūjīn`, `Rent (price)`],
+          [`押金`, `押金`, `yājīn`, `Deposit`],
+          [`租賃合約`, `租赁合同`, `zūlìn hétóng`, `Rental contract / lease agreement`],
+          [`看房`, `看房`, `kàn fáng`, `View a house`],
+          [`仲介費`, `中介费`, `zhōngjiè fèi`, `Agency fee`],
+          [`水電費`, `水电费`, `shuǐdiàn fèi`, `Water and electricity bill`],
+          [`物業管理費`, `物业管理费`, `wùyè guǎnlǐ fèi`, `Property management fee`],
+          [`到期`, `到期`, `dàoqī`, `Expire (lease expiration)`],
+          [`續租`, `续租`, `xùzū`, `Renew the lease`],
+          [`公寓`, `公寓`, `gōngyù`, `Apartment`],
+          [`別墅`, `别墅`, `biéshù`, `Villa`],
+          [`單間`, `单间`, `dānjiān`, `Single room`],
+          [`合租`, `合租`, `hézū`, `Shared rental`],
+          [`整租`, `整租`, `zhěngzū`, `Rent the whole unit`],
+          [`獨立衛浴`, `独立卫浴`, `dúlì wèiyù`, `Private bathroom`],
+          [`地鐵房`, `地铁房`, `dìtiě fáng`, `Apartment near subway`],
+          [`臥室`, `卧室`, `wòshì`, `Bedroom`],
+          [`廚房`, `厨房`, `chúfáng`, `Kitchen`],
+          [`客廳`, `客厅`, `kètīng`, `Living room`],
+          [`衛生間`, `卫生间`, `wèishēngjiān`, `Bathroom`],
+          [`陽台`, `阳台`, `yángtái`, `Balcony`],
+          [`家具`, `家具`, `jiājù`, `Furniture`],
+          [`空調`, `空调`, `kōngtiáo`, `Air conditioner`],
+          [`暖氣`, `暖气`, `nuǎnqì`, `Heating system`],
+          [`電梯`, `电梯`, `diàntī`, `Elevator`],
+          [`停車位`, `停车位`, `tíngchēwèi`, `Parking space`],
+          [`社區`, `小区`, `xiǎoqū`, `Residential community`]
+        ]
+      },
+      {
+        id: `signs`,
+        num: `06`,
+        tTitle: `告示、廣告與招牌`,
+        sTitle: `告示、广告与招牌`,
+        enTitle: `Notice & Sign`,
+        tDesc: `閱讀理解常考之求職招聘、家教啟事與宣傳廣告高頻術語。`,
+        sDesc: `阅读理解常考之求职招聘、家教启事与宣传广告高频术语。`,
+        items: [
+          [`招聘`, `招聘`, `zhāopìn`, `Recruitment / Hiring`],
+          [`申請`, `申请`, `shēnqǐng`, `Apply / Application`],
+          [`職位`, `职位`, `zhíwèi`, `Job position`],
+          [`工作`, `工作`, `gōngzuò`, `Work / Job`],
+          [`兼職`, `兼职`, `jiānzhí`, `Part-time job`],
+          [`全職`, `全职`, `quánzhí`, `Full-time job`],
+          [`家教`, `家教`, `jiājiào`, `Tutor`],
+          [`應徵`, `应聘`, `yìngpìn`, `Apply for a job`],
+          [`求職`, `求职`, `qiúzhí`, `Job seeking`],
+          [`履歷`, `简历`, `jiǎnlì`, `Resume / CV`],
+          [`面試`, `面试`, `miànshì`, `Interview`],
+          [`經驗`, `经验`, `jīngyàn`, `Experience`],
+          [`能力`, `能力`, `nénglì`, `Ability / Capability`],
+          [`條件`, `条件`, `tiáojiàn`, `Requirements / Conditions`],
+          [`薪資`, `薪资`, `xīnzī`, `Salary`],
+          [`待遇`, `待遇`, `dàiyù`, `Compensation / Benefits`],
+          [`福利`, `福利`, `fúlì`, `Benefits`],
+          [`責任`, `责任`, `zérèn`, `Responsibility`],
+          [`培訓`, `培训`, `péixùn`, `Training`],
+          [`推薦信`, `推荐信`, `tuījiàn xìn`, `Recommendation letter`],
+          [`錄用`, `录用`, `lùyòng`, `Hire / Employment`],
+          [`招聘啟事`, `招聘启事`, `zhāopìn qǐshì`, `Job notice`],
+          [`招聘廣告`, `招聘广告`, `zhāopìn guǎnggào`, `Recruitment advertisement`],
+          [`誠聘`, `诚聘`, `chéngpìn`, `Hiring sincerely`],
+          [`立即招聘`, `立即招聘`, `lìjí zhāopìn`, `Hiring immediately`],
+          [`有意者請聯繫`, `有意者请联系`, `yǒu yì zhě qǐng liánxì`, `Interested candidates, please contact`],
+          [`薪資面議`, `薪资面议`, `xīnzī miànyì`, `Salary negotiable`],
+          [`工作時間靈活`, `工作时间灵活`, `gōngzuò shíjiān línghuó`, `Flexible working hours`],
+          [`無經驗可培訓`, `无经验可培训`, `wú jīngyàn kě péixùn`, `No experience required, training available`],
+          [`尋找家教`, `寻找家教`, `xúnzhǎo jiājiào`, `Looking for a tutor`],
+          [`誠聘英語家教`, `诚聘英语家教`, `chéngpìn Yīngyǔ jiājiào`, `Hiring an English tutor`],
+          [`數學家教`, `数学家教`, `shùxué jiājiào`, `Math tutor`],
+          [`語文家教`, `语文学教`, `yǔwén jiājiào`, `Chinese tutor`],
+          [`外教`, `外教`, `wàijiào`, `Foreign tutor`],
+          [`一對一輔導`, `一对一辅导`, `yī duì yī fǔdǎo`, `One-on-one tutoring`],
+          [`可線上授課`, `可线上授课`, `kě xiànshàng shòukè`, `Online tutoring available`],
+          [`輔導經驗`, `辅导经验`, `fǔdǎo jīngyàn`, `Tutoring experience`],
+          [`耐心負責`, `耐心负责`, `nàixīn fùzé`, `Patient and responsible`]
+        ]
+      },
+      {
+        id: `student`,
+        num: `07`,
+        tTitle: `學生日常生活`,
+        sTitle: `学生日常生活`,
+        enTitle: `Student Life`,
+        tDesc: `高中生與大學生日常作息、校園修課、社團活動與寒暑假生活詞彙。`,
+        sDesc: `高中生与大学生日常作息、校园修课、社团活动与寒暑假生活词汇。`,
+        items: [
+          [`起床`, `起床`, `qǐchuáng`, `Wake up`],
+          [`洗漱`, `洗漱`, `xǐshù`, `Wash face and brush teeth`],
+          [`吃早餐`, `吃早餐`, `chī zǎocān`, `Eat breakfast`],
+          [`上課`, `上课`, `shàngkè`, `Attend class`],
+          [`聽課`, `听课`, `tīngkè`, `Listen to lecture`],
+          [`做筆記`, `做笔记`, `zuò bǐjì`, `Take notes`],
+          [`小組討論`, `小组讨论`, `xiǎozǔ tǎolùn`, `Group discussion`],
+          [`完成作業`, `完成作业`, `wánchéng zuòyè`, `Complete homework`],
+          [`參加考試`, `参加考试`, `cānjiā kǎoshì`, `Take an exam`],
+          [`複習功課`, `复习功课`, `fùxí gōngkè`, `Review lessons`],
+          [`下課`, `下课`, `xiàkè`, `Finish class`],
+          [`午休`, `午休`, `wǔxiū`, `Noon break / nap`],
+          [`去食堂吃飯`, `去食堂吃饭`, `qù shítáng chīfàn`, `Eat at cafeteria`],
+          [`課外活動`, `课外活动`, `kèwài huódòng`, `Extracurricular activities`],
+          [`社團活動`, `社团活动`, `shètuán huódòng`, `Club activities`],
+          [`打工`, `打工`, `dǎgōng`, `Work part-time`],
+          [`滑手機`, `刷手机`, `shuā shǒujī`, `Browse smartphone`],
+          [`選課`, `选课`, `xuǎnkè`, `Select courses`],
+          [`學分`, `学分`, `xuéfēn`, `Academic credit`],
+          [`畢業論文`, `毕业论文`, `bìyè lùnwén`, `Graduation thesis`],
+          [`期中考試`, `期中考试`, `qīzhōng kǎoshì`, `Midterm exam`],
+          [`期末考試`, `期末考试`, `qīmò kǎoshì`, `Final exam`],
+          [`家教課`, `辅导课`, `fǔdǎo kè`, `Tutoring class`],
+          [`社團`, `社团`, `shètuán`, `Student club`],
+          [`留學生`, `留学生`, `liúxuéshēng`, `International student`],
+          [`實習`, `实习`, `shíxí`, `Internship`],
+          [`宿舍室友`, `宿舍舍友`, `sùshè shèyǒu`, `Dorm roommate`],
+          [`獎學金`, `奖学金`, `jiǎngxuéjīn`, `Scholarship`],
+          [`學費`, `学费`, `xuéfèi`, `Tuition fee`],
+          [`朋友聚會`, `朋友聚会`, `péngyǒu jùhuì`, `Friends gathering`],
+          [`聊天`, `聊天`, `liáotiān`, `Chat`],
+          [`打遊戲`, `打游戏`, `dǎ yóuxì`, `Play video games`],
+          [`看電影`, `看电影`, `kàn diànyǐng`, `Watch movies`],
+          [`唱K`, `唱K`, `chàng K`, `Sing karaoke`],
+          [`約會`, `约会`, `yuēhuì`, `Go on a date`],
+          [`旅行`, `旅行`, `lǚxíng`, `Travel`],
+          [`健身`, `健身`, `jiànshēn`, `Fitness / workout`],
+          [`熬夜`, `熬夜`, `áoyè`, `Stay up late`],
+          [`暑假`, `暑假`, `shǔjià`, `Summer vacation`],
+          [`寒假`, `寒假`, `hánjià`, `Winter vacation`],
+          [`放假`, `放假`, `fàngjià`, `Have a holiday`],
+          [`補課`, `补课`, `bǔkè`, `Make up lessons`],
+          [`夏令營`, `夏令营`, `xiàlìngyíng`, `Summer camp`],
+          [`露營`, `露营`, `lùyíng`, `Camping`],
+          [`滑雪`, `滑雪`, `huáxuě`, `Skiing`],
+          [`堆雪人`, `堆雪人`, `duī xuěrén`, `Make a snowman`],
+          [`打雪仗`, `打雪仗`, `dǎ xuězhàng`, `Snowball fight`],
+          [`回老家`, `回老家`, `huí lǎojiā`, `Return to hometown`],
+          [`年夜飯`, `年夜饭`, `niányèfàn`, `New Year's Eve dinner`],
+          [`看春晚`, `看春晚`, `kàn Chūnwǎn`, `Watch Spring Festival Gala`],
+          [`走親訪友`, `走亲访友`, `zǒuqīn fǎngyǒu`, `Visit relatives and friends`],
+          [`包餃子`, `包饺子`, `bāo jiǎozi`, `Make dumplings`],
+          [`拿紅包`, `拿红包`, `ná hóngbāo`, `Receive red envelopes`],
+          [`學一門新技能`, `学一门新技能`, `xué yīmén xīn jìnéng`, `Learn a new skill`],
+          [`線上課程`, `在线课程`, `zàixiàn kèchéng`, `Online courses`],
+          [`考駕照`, `考驾照`, `kǎo jiàzhào`, `Take driving license test`]
+        ]
+      },
+      {
+        id: `broadcast`,
+        num: `08`,
+        tTitle: `公共廣播`,
+        sTitle: `公共广播`,
+        enTitle: `Public Announcement`,
+        tDesc: `聽力測驗關鍵情境，包含機場登機、火車站車次與地鐵乘車播報用語。`,
+        sDesc: `听力测验关键情境，包含机场登机、火车站车次与地铁乘车播报用语。`,
+        items: [
+          [`廣播`, `广播`, `guǎngbò`, `Broadcast / Announcement`],
+          [`通知`, `通知`, `tōngzhī`, `Notice`],
+          [`乘客`, `乘客`, `chéngkè`, `Passenger`],
+          [`旅客`, `旅客`, `lǚkè`, `Traveler`],
+          [`工作人員`, `工作人员`, `gōngzuò rényuán`, `Staff`],
+          [`安全檢查`, `安全检查`, `ānquán jiǎnchá`, `Security check`],
+          [`延誤`, `延误`, `yánwù`, `Delay`],
+          [`取消`, `取消`, `qǔxiāo`, `Cancellation`],
+          [`緊急情況`, `紧急情况`, `jǐnjí qíngkuàng`, `Emergency`],
+          [`目的地`, `目的地`, `mùdìdì`, `Destination`],
+          [`換乘`, `换乘`, `huànchéng`, `Transfer`],
+          [`登機口`, `登机口`, `dēngjīkǒu`, `Boarding gate (Airport)`],
+          [`登機`, `登机`, `dēngjī`, `Boarding`],
+          [`登機手續`, `登机手续`, `dēngjī shǒuxù`, `Check-in procedures`],
+          [`航班`, `航班`, `hángbān`, `Flight`],
+          [`航班號`, `航班号`, `hángbān hào`, `Flight number`],
+          [`航班延誤`, `航班延误`, `hángbān yánwù`, `Flight delay`],
+          [`請儘快登機`, `请尽快登机`, `qǐng jǐnkuài dēngjī`, `Please board the plane quickly`],
+          [`行李領取`, `行李领取`, `xínglǐ lǐngqǔ`, `Baggage claim`],
+          [`過安檢`, `过安检`, `guò ānjiǎn`, `Go through security check`],
+          [`請繫好安全帶`, `请系好安全带`, `qǐng jìhǎo ānquándài`, `Please fasten your seatbelt`],
+          [`列車`, `列车`, `lièchē`, `Train (Station)`],
+          [`車次`, `车次`, `chēcì`, `Train number`],
+          [`月台`, `站台`, `zhàntái`, `Platform`],
+          [`候車室`, `候车室`, `hòuchēshì`, `Waiting area`],
+          [`驗票`, `检票`, `jiǎnpiào`, `Ticket check`],
+          [`開車時間`, `开车时间`, `kāichē shíjiān`, `Departure time`],
+          [`誤點`, `晚点`, `wǎndiǎn`, `Delayed`],
+          [`終點站`, `终点站`, `zhōngdiǎnzhàn`, `Terminal station`],
+          [`列車進站`, `列车进站`, `lièchē jìnzhàn`, `Train arriving (Subway)`],
+          [`列車即將到達`, `列车即将到达`, `lièchē jíjiāng dàodá`, `Train is arriving soon`],
+          [`請站在黃線以外`, `请站在黄线以外`, `qǐng zhàn zài huángxiàn yǐwài`, `Stand behind yellow line`],
+          [`下一站`, `下一站`, `xià yí zhàn`, `Next station`],
+          [`請勿倚靠車門`, `请勿倚靠车门`, `qǐng wù yǐkào chēmén`, `Do not lean on doors`],
+          [`請注意安全`, `请注意安全`, `qǐng zhùyì ānquán`, `Pay attention to safety`],
+          [`乘客請抓好扶手`, `乘客请抓好扶手`, `chéngkè qǐng zhuāhǎo fúshǒu`, `Hold onto handrails`]
+        ]
+      },
+      {
+        id: `history`,
+        num: `09`,
+        tTitle: `歷史故事、名勝與人物`,
+        sTitle: `历史故事、名胜与人物`,
+        enTitle: `History & Figures`,
+        tDesc: `文化演講必備之四大名著、著名歷史人物、思想家與世界文化遺產。`,
+        sDesc: `文化演讲必备之四大名著、著名历史人物、思想家与世界文化遗产。`,
+        items: [
+          [`歷史`, `历史`, `lìshǐ`, `History`],
+          [`故事`, `故事`, `gùshì`, `Story`],
+          [`傳說`, `传说`, `chuánshuō`, `Legend`],
+          [`古代`, `古代`, `gǔdài`, `Ancient times`],
+          [`帝王`, `帝王`, `dìwáng`, `Emperor / Monarch`],
+          [`英雄`, `英雄`, `yīngxióng`, `Hero`],
+          [`四大名著`, `四大名著`, `sì dà míngzhù`, `Four Classic Novels`],
+          [`三國演義`, `三国演义`, `Sānguó Yǎnyì`, `Romance of the Three Kingdoms`],
+          [`西遊記`, `西游记`, `Xīyóu Jì`, `Journey to the West`],
+          [`紅樓夢`, `红楼梦`, `Hónglóu Mèng`, `Dream of the Red Chamber`],
+          [`水滸傳`, `水浒传`, `Shuǐhǔ Zhuàn`, `Water Margin`],
+          [`史記`, `史记`, `Shǐjì`, `Records of the Grand Historian`],
+          [`王朝`, `王朝`, `wángcháo`, `Dynasty`],
+          [`戰爭`, `战争`, `zhànzhēng`, `War`],
+          [`統一`, `统一`, `tǒngyī`, `Unify / Unification`],
+          [`革命`, `革命`, `gémìng`, `Revolution`],
+          [`成就`, `成就`, `chéngjiù`, `Achievement`],
+          [`名勝古蹟`, `名胜古迹`, `míngshèng gǔjī`, `Historical sites and scenic spots`],
+          [`自然景觀`, `自然景观`, `zìrán jǐngguān`, `Natural landscape`],
+          [`世界遺產`, `世界遗产`, `shìjiè yíchǎn`, `World Heritage`],
+          [`長城`, `长城`, `Chángchéng`, `The Great Wall`],
+          [`故宮`, `故宫`, `Gùgōng`, `The Forbidden City`],
+          [`頤和園`, `颐和园`, `Yíhéyuán`, `Summer Palace`],
+          [`兵馬俑`, `兵马俑`, `Bīngmǎyǒng`, `Terracotta Army`],
+          [`西湖`, `西湖`, `Xīhú`, `West Lake`],
+          [`黃山`, `黄山`, `Huángshān`, `Mount Huang`],
+          [`張家界`, `张家界`, `Zhāngjiājiè`, `Zhangjiajie`],
+          [`古鎮`, `古镇`, `gǔzhèn`, `Ancient town`],
+          [`古建築`, `古建筑`, `gǔ jiànzhù`, `Ancient architecture`],
+          [`遺址`, `遗址`, `yízhǐ`, `Ruins / Relic site`],
+          [`歷史人物`, `历史人物`, `lìshǐ rénwù`, `Historical figure`],
+          [`領袖`, `领袖`, `lǐngxiù`, `Leader`],
+          [`思想家`, `思想家`, `sīxiǎngjiā`, `Thinker`],
+          [`科學家`, `科学家`, `kēxuéjiā`, `Scientist`],
+          [`哲學家`, `哲学家`, `zhéxuéjiā`, `Philosopher`],
+          [`政治家`, `政治家`, `zhèngzhìjiā`, `Statesman / Politician`],
+          [`孔子`, `孔子`, `Kǒngzǐ`, `Confucius`],
+          [`秦始皇`, `秦始皇`, `Qín Shǐhuáng`, `Qin Shi Huang`],
+          [`李白`, `李白`, `Lǐ Bái`, `Li Bai (poet)`],
+          [`杜甫`, `杜甫`, `Dù Fǔ`, `Du Fu (poet)`],
+          [`孫中山`, `孙中山`, `Sūn Zhōngshān`, `Sun Yat-sen`],
+          [`毛澤東`, `毛泽东`, `Máo Zédōng`, `Mao Zedong`],
+          [`鄧小平`, `邓小平`, `Dèng Xiǎopíng`, `Deng Xiaoping`],
+          [`改革開放`, `改革开放`, `gǎigé kāifàng`, `Reform and Opening-up`]
+        ]
+      },
+      {
+        id: `culture`,
+        num: `10`,
+        tTitle: `多元文化與價值觀`,
+        sTitle: `多元文化与价值观`,
+        enTitle: `Culture & Values`,
+        tDesc: `深入探討傳統思想哲理（儒釋道）、道德價值與吉祥文化符號。`,
+        sDesc: `深入探讨传统思想哲理（儒释道）、道德价值与吉祥文化符号。`,
+        items: [
+          [`傳統文化`, `传统文化`, `chuántǒng wénhuà`, `Traditional culture`],
+          [`現代文化`, `现代文化`, `xiàndài wénhuà`, `Modern culture`],
+          [`多元文化`, `多元文化`, `duōyuán wénhuà`, `Multiculturalism`],
+          [`民俗文化`, `民俗文化`, `mínsú wénhuà`, `Folk culture`],
+          [`文化遺產`, `文化遗产`, `wénhuà yíchǎn`, `Cultural heritage`],
+          [`文化差異`, `文化差异`, `wénhuà chāyì`, `Cultural difference`],
+          [`茶文化`, `茶文化`, `chá wénhuà`, `Tea culture`],
+          [`書法`, `书法`, `shūfǎ`, `Calligraphy`],
+          [`尊重`, `尊重`, `zūnzhòng`, `Respect`],
+          [`禮貌`, `礼貌`, `lǐmào`, `Politeness / Manners`],
+          [`和諧`, `和谐`, `héxié`, `Harmony`],
+          [`孝順`, `孝顺`, `xiàoshùn`, `Filial piety`],
+          [`節儉`, `节俭`, `jiéjiǎn`, `Frugality / Thrift`],
+          [`誠信`, `诚信`, `chéngxìn`, `Integrity / Honesty`],
+          [`友誼`, `友谊`, `yǒuyì`, `Friendship`],
+          [`團結`, `团结`, `tuánjié`, `Unity / Solidarity`],
+          [`責任`, `责任`, `zérèn`, `Responsibility`],
+          [`龍`, `龙`, `lóng`, `Dragon`],
+          [`鳳`, `凤`, `fèng`, `Phoenix`],
+          [`蓮花`, `莲花`, `liánhuā`, `Lotus`],
+          [`竹子`, `竹子`, `zhúzi`, `Bamboo`],
+          [`梅花`, `梅花`, `méihuā`, `Plum blossom`],
+          [`五福`, `五福`, `wǔfú`, `Five Blessings`],
+          [`壽字`, `寿字`, `shòu zì`, `Character 'Shou' (Longevity)`],
+          [`福字`, `福字`, `fú zì`, `Character 'Fu' (Fortune)`],
+          [`燈籠`, `灯笼`, `dēnglóng`, `Lantern`],
+          [`扇子`, `扇子`, `shànzi`, `Fan`],
+          [`道德`, `道德`, `dàodé`, `Morality / Ethics`],
+          [`儒家`, `儒家`, `Rújiā`, `Confucianism`],
+          [`道家`, `道家`, `Dàojiā`, `Taoism`],
+          [`佛教`, `佛教`, `Fójiào`, `Buddhism`],
+          [`易經`, `易经`, `Yìjīng`, `I Ching (Book of Changes)`],
+          [`天人合一`, `天人合一`, `tiānrén héyī`, `Harmony between man and nature`],
+          [`和諧社會`, `和谐社会`, `héxié shèhuì`, `Harmonious society`],
+          [`無為而治`, `无为而治`, `wúwéi ér zhì`, `Governing by non-action`],
+          [`五行`, `五行`, `wǔxíng`, `Five Elements`],
+          [`陰陽`, `阴阳`, `yīnyáng`, `Yin and Yang`],
+          [`傳統工藝`, `传统工艺`, `chuántǒng gōngyì`, `Traditional craft`],
+          [`民間藝術`, `民间艺术`, `mínjiān yìshù`, `Folk art`]
+        ]
+      },
+      {
+        id: `travel`,
+        num: `11`,
+        tTitle: `旅遊與交通`,
+        sTitle: `旅游与交通`,
+        enTitle: `Travel`,
+        tDesc: `涵蓋自助旅遊行程安排、交通工具搭乘、住宿預約與觀光體驗詞彙。`,
+        sDesc: `涵盖自助旅游行程安排、交通工具搭乘、住宿预约与观光体验词汇。`,
+        items: [
+          [`旅行社`, `旅行社`, `lǚxíng shè`, `Travel agency`],
+          [`導遊`, `导游`, `dǎoyóu`, `Tour guide`],
+          [`自助遊`, `自助游`, `zìzhù yóu`, `Self-guided tour`],
+          [`自由行`, `自由行`, `zìyóu xíng`, `Independent travel`],
+          [`團體遊`, `团体游`, `tuántǐ yóu`, `Group tour`],
+          [`旅遊保險`, `旅游保险`, `lǚyóu bǎoxiǎn`, `Travel insurance`],
+          [`旅行計畫`, `旅行计划`, `lǚxíng jìhuà`, `Travel itinerary / plan`],
+          [`背包旅行`, `背包旅行`, `bēibāo lǚxíng`, `Backpacking`],
+          [`目的地`, `目的地`, `mùdì dì`, `Destination`],
+          [`飛機`, `飞机`, `fēijī`, `Airplane`],
+          [`火車`, `火车`, `huǒchē`, `Train`],
+          [`地鐵`, `地铁`, `dìtiě`, `Subway`],
+          [`計程車`, `出租车`, `chūzū chē`, `Taxi`],
+          [`輪船`, `轮船`, `lúnchuán`, `Ship / Ferry`],
+          [`自行車`, `自行车`, `zìxíngchē`, `Bicycle`],
+          [`飛機票`, `飞机票`, `fēijī piào`, `Air ticket`],
+          [`車票`, `车票`, `chēpiào`, `Train/Bus ticket`],
+          [`酒店`, `酒店`, `jiǔdiàn`, `Hotel`],
+          [`旅館`, `旅馆`, `lǚguǎn`, `Inn / Motel`],
+          [`民宿`, `民宿`, `mínsù`, `Homestay / B&B`],
+          [`青年旅社`, `青年旅社`, `qīngnián lǚshè`, `Youth hostel`],
+          [`度假村`, `度假村`, `dùjià cūn`, `Resort`],
+          [`預訂`, `预定`, `yùdìng`, `Reserve / Book`],
+          [`入住`, `入住`, `rùzhù`, `Check-in`],
+          [`退房`, `退房`, `tuìfáng`, `Check-out`],
+          [`護照`, `护照`, `hùzhào`, `Passport`],
+          [`簽證`, `签证`, `qiānzhèng`, `Visa`],
+          [`行李`, `行李`, `xínglǐ`, `Luggage / Baggage`],
+          [`旅遊指南`, `旅游指南`, `lǚyóu zhǐnán`, `Travel guide book`],
+          [`地圖`, `地图`, `dìtú`, `Map`],
+          [`參觀`, `参观`, `cānguān`, `Visit / Tour`],
+          [`拍照`, `拍照`, `pāizhào`, `Take photos`],
+          [`遊覽`, `游览`, `yóulǎn`, `Sightsee`],
+          [`登山`, `登山`, `dēngshān`, `Mountain climbing`],
+          [`徒步旅行`, `徒步旅行`, `túbù lǚxíng`, `Hiking / Trekking`],
+          [`觀光`, `观光`, `guānguāng`, `Sightseeing`],
+          [`文化體驗`, `文化体验`, `wénhuà tǐyàn`, `Cultural experience`]
+        ]
+      },
+      {
+        id: `family`,
+        num: `12`,
+        tTitle: `家庭與人際關係`,
+        sTitle: `家庭与人际关系`,
+        enTitle: `Family & Relationships`,
+        tDesc: `探討家庭結構、親職教養、情感溝通與人際互動相關語彙。`,
+        sDesc: `探讨家庭结构、亲职教养、情感沟通与人际互动相关词汇。`,
+        items: [
+          [`結婚證`, `结婚证`, `jiéhūn zhèng`, `Marriage certificate`],
+          [`新婚`, `新婚`, `xīnhūn`, `Newlywed`],
+          [`家庭聚會`, `家庭聚会`, `jiātíng jùhuì`, `Family gathering`],
+          [`家務`, `家务`, `jiāwù`, `Housework / Chores`],
+          [`照顧`, `照顾`, `zhàogù`, `Look after / Take care of`],
+          [`養育`, `养育`, `yǎngyù`, `Bring up / Raise`],
+          [`教育`, `教育`, `jiàoyù`, `Education`],
+          [`育兒`, `育儿`, `yù'ér`, `Parenting / Child-rearing`],
+          [`家長`, `家长`, `jiāzhǎng`, `Parents / Guardian`],
+          [`婆媳關係`, `婆媳关系`, `póxí guānxì`, `Mother-in-law and daughter-in-law relation`],
+          [`親子關係`, `亲子关系`, `qīnzǐ guānxì`, `Parent-child relationship`],
+          [`單親家庭`, `单亲家庭`, `dānqīn jiātíng`, `Single-parent family`],
+          [`家庭醫生`, `家庭医生`, `jiātíng yīshēng`, `Family doctor`],
+          [`關愛`, `关爱`, `guān'ài`, `Care and concern`],
+          [`思念`, `思念`, `sīniàn`, `Miss / Longing for`],
+          [`信任`, `信任`, `xìnrèn`, `Trust / Confidence`],
+          [`心疼`, `心疼`, `xīnténg`, `Feel distressed for someone`],
+          [`擔心`, `担心`, `dānxīn`, `Worry`],
+          [`難過`, `难过`, `nánguò`, `Feel sad`],
+          [`生氣`, `生气`, `shēngqì`, `Get angry`],
+          [`爭吵`, `争吵`, `zhēngchǎo`, `Quarrel / Dispute`],
+          [`寬容`, `宽容`, `kuānróng`, `Tolerance / Forgiving`]
+        ]
+      },
+      {
+        id: `health`,
+        num: `13`,
+        tTitle: `健康與生活方式`,
+        sTitle: `健康与生活方式`,
+        enTitle: `Health & Wellness`,
+        tDesc: `生理構造、運動健身、飲食營養、心理健康調適與就診常見詞彙。`,
+        sDesc: `生理构造、运动健身、饮食营养、心理健康调适与就诊常见词汇。`,
+        items: [
+          [`身體`, `身体`, `shēntǐ`, `Body / Health`],
+          [`心臟`, `心脏`, `xīnzàng`, `Heart`],
+          [`肺`, `肺`, `fèi`, `Lungs`],
+          [`胃`, `胃`, `wèi`, `Stomach`],
+          [`肝`, `肝`, `gān`, `Liver`],
+          [`腎`, `肾`, `shèn`, `Kidney`],
+          [`免疫系統`, `免疫系统`, `miǎnyì xìtǒng`, `Immune system`],
+          [`血壓`, `血压`, `xiěyā`, `Blood pressure`],
+          [`體溫`, `体温`, `tǐwēn`, `Body temperature`],
+          [`鍛鍊`, `锻炼`, `duànliàn`, `Exercise / Workout`],
+          [`跑步`, `跑步`, `pǎobù`, `Running / Jogging`],
+          [`游泳`, `游泳`, `yóuyǒng`, `Swimming`],
+          [`瑜伽`, `瑜伽`, `yújiā`, `Yoga`],
+          [`有氧運動`, `有氧运动`, `yǒu yǎng yùndòng`, `Aerobic exercise`],
+          [`健身房`, `健身房`, `jiànshēn fáng`, `Gym`],
+          [`減肥`, `减肥`, `jiǎnféi`, `Lose weight`],
+          [`卡路里`, `卡路里`, `kǎlùlǐ`, `Calorie`],
+          [`蛋白質`, `蛋白质`, `dànbái zhí`, `Protein`],
+          [`碳水化合物`, `碳水化合物`, `tànshuǐ huàhéwù`, `Carbohydrate`],
+          [`脂肪`, `脂肪`, `zhīfáng`, `Fat`],
+          [`維他命`, `维生素`, `wéishēngsù`, `Vitamin`],
+          [`膳食纖維`, `膳食纤维`, `shànshí xiānwéi`, `Dietary fiber`],
+          [`健康食品`, `健康食品`, `jiànkāng shípǐn`, `Health food`],
+          [`低糖`, `低糖`, `dī táng`, `Low sugar`],
+          [`無糖`, `无糖`, `wú táng`, `Sugar-free`],
+          [`素食`, `素食`, `sùshí`, `Vegetarian food`],
+          [`有機食品`, `有机食品`, `yǒujī shípǐn`, `Organic food`],
+          [`情緒`, `情绪`, `qíngxù`, `Emotion / Mood`],
+          [`壓力`, `压力`, `yālì`, `Stress / Pressure`],
+          [`焦慮`, `焦虑`, `jiāolǜ`, `Anxiety`],
+          [`抑鬱`, `抑郁`, `yìyù`, `Depression`],
+          [`冥想`, `冥想`, `míngxiǎng`, `Meditation`],
+          [`放鬆`, `放松`, `fàngsōng`, `Relaxation`],
+          [`睡眠`, `睡眠`, `shuìmián`, `Sleep`],
+          [`失眠`, `失眠`, `shīmián`, `Insomnia`],
+          [`心理醫生`, `心理医生`, `xīnlǐ yīshēng`, `Psychologist / Psychiatrist`],
+          [`醫院`, `医院`, `yīyuàn`, `Hospital`],
+          [`處方`, `处方`, `chǔfāng`, `Prescription`],
+          [`手術`, `手术`, `shǒushù`, `Surgery / Operation`],
+          [`疫苗`, `疫苗`, `yìmiáo`, `Vaccine`],
+          [`感冒`, `感冒`, `gǎnmào`, `Cold / Flu`],
+          [`發燒`, `发烧`, `fāshāo`, `Fever`],
+          [`咳嗽`, `咳嗽`, `késou`, `Cough`],
+          [`過敏`, `过敏`, `guòmǐn`, `Allergy`]
+        ]
+      },
+      {
+        id: `current`,
+        num: `14`,
+        tTitle: `時事與社會新聞`,
+        sTitle: `时事与社会新闻`,
+        enTitle: `Current Events`,
+        tDesc: `公共政策、國際交流、經濟社會趨勢與突發新聞必備詞彙。`,
+        sDesc: `公共政策、国际交流、经济社会趋势与突发新闻必备词汇。`,
+        items: [
+          [`新聞`, `新闻`, `xīnwén`, `News`],
+          [`事件`, `事件`, `shìjiàn`, `Event / Incident`],
+          [`報導`, `报道`, `bàodào`, `Report / Coverage`],
+          [`政策`, `政策`, `zhèngcè`, `Policy`],
+          [`改革`, `改革`, `gǎigé`, `Reform`],
+          [`危機`, `危机`, `wēijī`, `Crisis`],
+          [`討論`, `讨论`, `tǎolùn`, `Discussion`],
+          [`進展`, `进展`, `jìnzhǎn`, `Progress`],
+          [`影響`, `影响`, `yǐngxiǎng`, `Impact / Influence`],
+          [`調查`, `调查`, `diàochá`, `Investigation / Survey`],
+          [`趨勢`, `趋势`, `qūshì`, `Trend`],
+          [`會議`, `会议`, `huìyì`, `Meeting / Conference`],
+          [`民眾`, `民众`, `mínzhòng`, `Public / Citizens`],
+          [`緊急情況`, `紧急情况`, `jǐnjí qíngkuàng`, `Emergency situation`],
+          [`突發事件`, `突发事件`, `tūfā shìjiàn`, `Sudden incident`],
+          [`爭議`, `争议`, `zhēngyì`, `Controversy`],
+          [`經濟發展`, `经济发展`, `jīngjì fāzhǎn`, `Economic development`],
+          [`國際關係`, `国际关系`, `guójì guānxì`, `International relations`],
+          [`社會問題`, `社会问题`, `shèhuì wèntí`, `Social issues`],
+          [`失業`, `失业`, `shīyè`, `Unemployment`],
+          [`疫情`, `疫情`, `yìqíng`, `Epidemic / Pandemic`],
+          [`防疫措施`, `防疫措施`, `fángyì cuòshī`, `Epidemic prevention measures`],
+          [`官方聲明`, `官方声明`, `guānfāng shēngmíng`, `Official statement`],
+          [`民意調查`, `民意调查`, `mín yì diào chá`, `Public opinion poll`]
+        ]
+      },
+      {
+        id: `speaking`,
+        num: `15`,
+        tTitle: `口語高分必備表達`,
+        sTitle: `口语高分必备表达`,
+        enTitle: `Speaking Connectors`,
+        tDesc: `針對人際口語問答與文化演講設計之邏輯組織詞、觀點陳述與承轉句型。`,
+        sDesc: `针对人际口语问答与文化演讲设计之逻辑组织词、观点陈述与承转句型。`,
+        items: [
+          [`首先`, `首先`, `shǒuxiān`, `First of all`, `發言開頭`],
+          [`其次`, `其次`, `qícì`, `Secondly`, `發言開頭`],
+          [`我想談一下…`, `我想谈一下…`, `wǒ xiǎng tán yíxià...`, `I'd like to talk about...`, `發言開頭`],
+          [`讓我們來看看…`, `让我们来看看…`, `ràng wǒmen lái kàn kàn...`, `Let's take a look at...`, `發言開頭`],
+          [`我認為`, `我认为`, `wǒ rènwéi`, `I think`, `個人觀點`],
+          [`我覺得`, `我觉得`, `wǒ juéde`, `I feel`, `個人觀點`],
+          [`在我看來`, `在我看来`, `zài wǒ kàn lái`, `In my opinion`, `個人觀點`],
+          [`從我的角度來看`, `从我的角度来看`, `cóng wǒ de jiǎodù lái kàn`, `From my perspective`, `個人觀點`],
+          [`對我來說`, `对我来说`, `duì wǒ lái shuō`, `As for me`, `個人觀點`],
+          [`根據我的經驗`, `根据我的经验`, `gēnjù wǒ de jīngyàn`, `According to my experience`, `個人觀點`],
+          [`我同意`, `我同意`, `wǒ tóngyì`, `I agree`, `贊同傾向`],
+          [`我不同意`, `我不同意`, `wǒ bù tóngyì`, `I disagree`, `贊同傾向`],
+          [`其實我更傾向於…`, `其实我更倾向于…`, `qíshí wǒ gèng qīngxiàng yú...`, `Actually, I lean more toward...`, `贊同傾向`],
+          [`我認為…更好`, `我认为…更好`, `wǒ rènwéi... gèng hǎo`, `I think... is better`, `贊同傾向`],
+          [`其實`, `其实`, `qíshí`, `Actually`, `轉折對比`],
+          [`但是`, `但是`, `dànshì`, `But`, `轉折對比`],
+          [`對比之下`, `对比之下`, `duìbǐ zhī xià`, `In contrast`, `轉折對比`],
+          [`例如`, `例如`, `lìrú`, `For example`, `舉例話題`],
+          [`說到…`, `说到…`, `shuō dào...`, `Speaking of...`, `舉例話題`],
+          [`換句話說`, `换句话说`, `huàn jù huà shuō`, `In other words`, `補充重述`],
+          [`我想補充一點`, `我想补充一点`, `wǒ xiǎng bǔchōng yīdiǎn`, `I would like to add a point`, `補充重述`],
+          [`另外`, `另外`, `lìngwài`, `In addition / Besides`, `補充重述`],
+          [`不僅…而且…`, `不仅…而且…`, `bùjǐn... érqiě...`, `Not only... but also...`, `補充重述`],
+          [`我認為最重要的是…`, `我认为最重要的是…`, `wǒ rènwéi zuì zhòngyào de shì...`, `I think the most important is...`, `強調因果`],
+          [`一個關鍵因素是…`, `一个关键因素是…`, `yí gè guānjiàn yīnsù shì...`, `A key factor is...`, `強調因果`],
+          [`我們不能忽視…`, `我们不能忽视…`, `wǒmen bù néng hūshì...`, `We cannot ignore...`, `強調因果`],
+          [`我認為這是因為…`, `我认为这是因为…`, `wǒ rènwéi zhè shì yīnwèi...`, `I think this is because...`, `強調因果`],
+          [`這也說明…`, `这也说明…`, `zhè yě shuōmíng...`, `This also shows that...`, `強調因果`],
+          [`因此`, `因此`, `yīncǐ`, `Therefore`, `強調因果`],
+          [`總的來說`, `总的来说`, `zǒng de lái shuō`, `In general / Overall`, `結尾總結`],
+          [`總結來說`, `总结来说`, `zǒngjié lái shuō`, `To sum up`, `結尾總結`],
+          [`總之`, `总之`, `zǒngzhī`, `In conclusion / In short`, `結尾總結`],
+          [`可以說`, `可以说`, `kěyǐ shuō`, `You can say that...`, `結尾總結`],
+          [`正如我所說`, `正如我所说`, `zhèngrú wǒ suǒ shuō`, `As I said`, `結尾總結`]
+        ]
+      },
+      {
+        id: `writing`,
+        num: `16`,
+        tTitle: `寫作高分連接詞`,
+        sTitle: `写作高分连接词`,
+        enTitle: `Writing Connectors`,
+        tDesc: `專為電郵回覆與觀點論述文整理之因果、轉折、遞進、假設與總結連接語。`,
+        sDesc: `专为电邮回复与观点论述文整理之因果、转折、递进、假设与总结连接语。`,
+        items: [
+          [`和`, `和`, `hé`, `and`, `基本連詞`],
+          [`但是 / 不過`, `但是 / 不过`, `dànshì / bùguò`, `but, however`, `基本連詞`],
+          [`因為…所以…`, `因为…所以…`, `yīnwèi... suǒyǐ...`, `because... therefore...`, `基本連詞`],
+          [`雖然`, `虽然`, `suīrán`, `although`, `基本連詞`],
+          [`如果`, `如果`, `rúguǒ`, `if`, `基本連詞`],
+          [`而且`, `而且`, `érqiě`, `furthermore / moreover`, `基本連詞`],
+          [`既然`, `既然`, `jìrán`, `since, now that`, `基本連詞`],
+          [`首先 / 其次`, `首先 / 其次`, `shǒuxiān / qícì`, `first of all / secondly`, `篇章過渡`],
+          [`另外 / 此外`, `另外 / 此外`, `lìngwài / cǐwài`, `besides, in addition`, `篇章過渡`],
+          [`同時`, `同时`, `tóngshí`, `at the same time`, `篇章過渡`],
+          [`即使`, `即使`, `jíshǐ`, `even if / even though`, `篇章過渡`],
+          [`換句話說`, `换句话说`, `huàn jù huà shuō`, `in other words`, `篇章過渡`],
+          [`我認為 / 我覺得`, `我认为 / 我觉得`, `wǒ rènwéi / wǒ juéde`, `I think / I feel`, `觀點表達`],
+          [`從我的角度來看`, `从我的角度来看`, `cóng wǒ de jiǎodù lái kàn`, `From my perspective`, `觀點表達`],
+          [`個人認為`, `个人认为`, `gèrén rènwéi`, `Personally, I think`, `觀點表達`],
+          [`我反對`, `我反对`, `wǒ fǎnduì`, `I oppose`, `觀點表達`],
+          [`由於`, `由于`, `yóuyú`, `due to, owing to`, `因果關係`],
+          [`因此`, `因此`, `yīncǐ`, `therefore, as a result`, `因果關係`],
+          [`例如 / 比如`, `例如 / 比如`, `lìrú / bǐrú`, `for example, such as`, `舉例說明`],
+          [`像`, `像`, `xiàng`, `such as, like`, `舉例說明`],
+          [`相比之下`, `相比之下`, `xiāngbǐ zhī xià`, `in comparison`, `比較對照`],
+          [`與其…不如…`, `与其…不如…`, `yǔqí... bùrú...`, `rather than... better to...`, `比較對照`],
+          [`然而`, `然而`, `rán'ér`, `however, yet`, `比較對照`],
+          [`反而`, `反而`, `fǎn'ér`, `on the contrary, instead`, `比較對照`],
+          [`特別是 / 尤其`, `特别是 / 尤其`, `tèbié shì / yóuqí`, `especially, particularly`, `強調節奏`],
+          [`必須強調的是`, `必须强调的是`, `bìxū qiángdiào de shì`, `what must be emphasized is`, `強調節奏`],
+          [`值得注意的是`, `值得注意的是`, `zhídé zhùyì de shì`, `it is worth noting that`, `強調節奏`],
+          [`更重要的是`, `更重要的是`, `gèng zhòngyào de shì`, `more importantly`, `遞進補充`],
+          [`對我來說`, `对我来说`, `duì wǒ lái shuō`, `as far as I'm concerned`, `個人體驗`],
+          [`根據我的經驗`, `根据我的经验`, `gēnjù wǒ de jīngyàn`, `based on my experience`, `個人體驗`],
+          [`肯定 / 絕對`, `肯定 / 绝对`, `kěndìng / juéduì`, `definitely / absolutely`, `確定性`],
+          [`可能 / 似乎`, `可能 / 似乎`, `kěnéng / sìhū`, `possibly / apparently, it seems`, `確定性`],
+          [`確實`, `确实`, `quèshí`, `indeed, truly`, `確定性`],
+          [`在…之前 / 之後`, `在…之前 / 之后`, `zài... zhīqián / zhīhòu`, `before / after`, `時間先後`],
+          [`一旦`, `一旦`, `yīdàn`, `once (something happens)`, `時間先後`],
+          [`直到`, `直到`, `zhídào`, `until`, `時間先後`],
+          [`也就是說`, `也就是说`, `yě jiùshì shuō`, `that is to say`, `澄清重述`],
+          [`換個角度來看`, `换个角度来看`, `huàn gè jiǎodù lái kàn`, `from another angle`, `澄清重述`],
+          [`簡而言之`, `简而言之`, `jiǎn ér yán zhī`, `in short, briefly speaking`, `澄清重述`],
+          [`總之`, `总之`, `zǒngzhī`, `in conclusion, in short`, `篇末總結`],
+          [`總的來說`, `总的来说`, `zǒng de lái shuō`, `overall, all in all`, `篇末總結`],
+          [`最後`, `最后`, `zuìhòu`, `finally, lastly`, `篇末總結`]
+        ]
+      }
+    ];
+
+    const UI_TEXT = {
+      trad: {
+        eyebrow: `AP 中文核心詞彙精選`,
+        title: `AP 中文詞彙複習與單元測驗`,
+        subtitle: `14 大主題詞彙 ＋ 口語演講與寫作連接詞，支援繁簡即時切換與語音朗讀。`,
+        scriptLabel: `字體`,
+        totalLabel: `總掌握進度`,
+        mobileUnitLabel: `選擇學習單元`,
+        sidebarTitle: `主題單元目錄`,
+        unitCount: `16 單元`,
+        resetDefault: `重設全部學習進度`,
+        resetArmed: `再次點擊確認重設`,
+        tabFlash: `生詞卡複習`,
+        tabQuiz: `單元考試`,
+        m1Label: `已掌握詞彙`,
+        m2Label: `標記複習中`,
+        m2Sub: `待加強字詞`,
+        m3Label: `單元考試最高分`,
+        noAttempts: `尚未作答`,
+        filterAll: `全部詞彙`,
+        filterReview: `複習中`,
+        filterUnmastered: `尚未掌握`,
+        shuffle: `隨機洗牌`,
+        emptyMsg: `此篩選分類目前沒有生詞卡。`,
+        showAllBtn: `顯示本單元全部詞彙`,
+        flipHint: `點擊卡片或按空白鍵顯示拼音與釋義`,
+        flipBtn: `翻轉卡片`,
+        speakBtn: `朗讀發音`,
+        prevBtn: `上一張`,
+        nextBtn: `下一張`,
+        markReview: `標記複習中`,
+        markMastered: `標記已掌握`,
+        markedMastered: `已掌握`,
+        markedReview: `複習中`,
+        unmarked: `未標記`,
+        listTitle: `本單元詞彙一覽`,
+        searchLabel: `搜尋詞彙、拼音或英文`,
+        searchPlaceholder: `輸入關鍵字…`,
+        thWord: `詞彙`,
+        thPinyin: `拼音`,
+        thEng: `英文釋義`,
+        thStatus: `狀態`,
+        quizPrompt: `請選出對應的拼音與英文釋義`,
+        quizListen: `聽取發音`,
+        quizNext: `下一題`,
+        quizFinish: `查看測驗結果`,
+        resultKicker: `測驗完成`,
+        retake: `再測一次`,
+        backStudy: `返回生詞卡`,
+        reviewHeading: `逐題檢討`,
+        sourceNote: `資料來源：《Mastering AP Chinese Vocabulary》高分核心詞彙精選（14 大主題詞彙、口語演講與寫作連接詞）。學習紀錄自動儲存於目前工作區。`
+      },
+      simp: {
+        eyebrow: `AP 中文核心词汇精选`,
+        title: `AP 中文词汇复习与单元测试`,
+        subtitle: `14 大主题词汇 ＋ 口语演讲与写作连接词，支持繁简即时切换与语音朗读。`,
+        scriptLabel: `字体`,
+        totalLabel: `总掌握进度`,
+        mobileUnitLabel: `选择学习单元`,
+        sidebarTitle: `主题单元目录`,
+        unitCount: `16 单元`,
+        resetDefault: `重设全部学习进度`,
+        resetArmed: `再次点击确认重设`,
+        tabFlash: `生词卡复习`,
+        tabQuiz: `单元测试`,
+        m1Label: `已掌握词汇`,
+        m2Label: `标记复习中`,
+        m2Sub: `待加强字词`,
+        m3Label: `单元测试最高分`,
+        noAttempts: `尚未作答`,
+        filterAll: `全部词汇`,
+        filterReview: `复习中`,
+        filterUnmastered: `尚未掌握`,
+        shuffle: `随机洗牌`,
+        emptyMsg: `此筛选分类目前没有生词卡。`,
+        showAllBtn: `显示本单元全部词汇`,
+        flipHint: `点击卡片或按空格键显示拼音与释义`,
+        flipBtn: `翻转卡片`,
+        speakBtn: `朗读发音`,
+        prevBtn: `上一张`,
+        nextBtn: `下一张`,
+        markReview: `标记复习中`,
+        markMastered: `标记已掌握`,
+        markedMastered: `已掌握`,
+        markedReview: `复习中`,
+        unmarked: `未标记`,
+        listTitle: `本单元词汇一览`,
+        searchLabel: `搜索词汇、拼音或英文`,
+        searchPlaceholder: `输入关键字…`,
+        thWord: `词汇`,
+        thPinyin: `拼音`,
+        thEng: `英文释义`,
+        thStatus: `状态`,
+        quizPrompt: `请选出对应的拼音与英文释义`,
+        quizListen: `听取发音`,
+        quizNext: `下一题`,
+        quizFinish: `查看测验结果`,
+        resultKicker: `测验完成`,
+        retake: `再测一次`,
+        backStudy: `返回生词卡`,
+        reviewHeading: `逐题检讨`,
+        sourceNote: `资料来源：《Mastering AP Chinese Vocabulary》高分核心词汇精选（14 大主题词汇、口语演讲与写作连接词）。学习记录自动保存于当前工作区。`
+      }
+    };
+
+    let appState = {
+      scriptMode: `trad`,
+      currentUnitId: `env`,
+      mode: `flashcards`,
+      cardFilter: `all`,
+      mastery: {},
+      quizScores: {}
+    };
+
+    let deckIndices = [];
+    let deckPos = 0;
+    let isFlipped = false;
+
+    let quizQuestions = [];
+    let quizPos = 0;
+    let quizAnswers = [];
+    let quizLocked = false;
+
+    function t(key) {
+      return UI_TEXT[appState.scriptMode][key] || key;
+    }
+
+    function getWordText(item) {
+      return appState.scriptMode === `trad` ? item[0] : item[1];
+    }
+
+    function getUnitTitle(unit) {
+      return appState.scriptMode === `trad` ? unit.tTitle : unit.sTitle;
+    }
+
+    function getUnitDesc(unit) {
+      return appState.scriptMode === `trad` ? unit.tDesc : unit.sDesc;
+    }
+
+    function itemKey(unitId, idx) {
+      return `${unitId}:${idx}`;
+    }
+
+    function getCurrentUnit() {
+      return UNITS.find(u => u.id === appState.currentUnitId) || UNITS[0];
+    }
+
+    async function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (err) {
+          // Graceful no-op if host rejects
+        }
+      }
+    }
+
+    function setScriptMode(mode) {
+      appState.scriptMode = mode === `simp` ? `simp` : `trad`;
+      document.documentElement.lang = appState.scriptMode === `trad` ? `zh-Hant` : `zh-Hans`;
+      const btnTrad = document.getElementById(`btn-trad`);
+      const btnSimp = document.getElementById(`btn-simp`);
+      if (btnTrad) btnTrad.setAttribute(`aria-pressed`, String(appState.scriptMode === `trad`));
+      if (btnSimp) btnSimp.setAttribute(`aria-pressed`, String(appState.scriptMode === `simp`));
+      renderAll();
+      persistState();
+    }
+
+    function selectUnit(unitId) {
+      if (!UNITS.some(u => u.id === unitId)) return;
+      appState.currentUnitId = unitId;
+      isFlipped = false;
+      buildDeck(false);
+      if (appState.mode === `quiz`) {
+        startUnitQuiz();
+      }
+      renderAll();
+      persistState();
+    }
+
+    function setMode(mode) {
+      appState.mode = mode === `quiz` ? `quiz` : `flashcards`;
+      const pFlash = document.getElementById(`panel-flashcards`);
+      const pQuiz = document.getElementById(`panel-quiz`);
+      const tFlash = document.getElementById(`tab-flashcards`);
+      const tQuiz = document.getElementById(`tab-quiz`);
+      if (pFlash) pFlash.hidden = appState.mode !== `flashcards`;
+      if (pQuiz) pQuiz.hidden = appState.mode !== `quiz`;
+      if (tFlash) tFlash.setAttribute(`aria-selected`, String(appState.mode === `flashcards`));
+      if (tQuiz) tQuiz.setAttribute(`aria-selected`, String(appState.mode === `quiz`));
+      if (appState.mode === `quiz`) {
+        startUnitQuiz();
+      }
+      persistState();
+    }
+
+    function setCardFilter(filter) {
+      appState.cardFilter = filter;
+      isFlipped = false;
+      buildDeck(false);
+      renderFlashcardSection();
+      persistState();
+    }
+
+    function buildDeck(shuffled) {
+      const unit = getCurrentUnit();
+      const indices = [];
+      for (let i = 0; i < unit.items.length; i++) {
+        const status = appState.mastery[itemKey(unit.id, i)] || `none`;
+        if (appState.cardFilter === `review` && status !== `review`) continue;
+        if (appState.cardFilter === `unmastered` && status === `mastered`) continue;
+        indices.push(i);
+      }
+      if (shuffled) {
+        for (let i = indices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const tmp = indices[i];
+          indices[i] = indices[j];
+          indices[j] = tmp;
+        }
+      }
+      deckIndices = indices;
+      deckPos = 0;
+    }
+
+    function shuffleDeck() {
+      isFlipped = false;
+      buildDeck(true);
+      renderFlashcardSection();
+    }
+
+    function flipCard() {
+      if (deckIndices.length === 0) return;
+      isFlipped = !isFlipped;
+      renderFlashcardCardOnly();
+    }
+
+    function handleCardKey(e) {
+      if (e.key === ` ` || e.key === `Enter`) {
+        e.preventDefault();
+        flipCard();
+      } else if (e.key === `ArrowRight`) {
+        nextCard();
+      } else if (e.key === `ArrowLeft`) {
+        prevCard();
+      }
+    }
+
+    function prevCard() {
+      if (deckIndices.length === 0) return;
+      deckPos = (deckPos - 1 + deckIndices.length) % deckIndices.length;
+      isFlipped = false;
+      renderFlashcardCardOnly();
+    }
+
+    function nextCard() {
+      if (deckIndices.length === 0) return;
+      deckPos = (deckPos + 1) % deckIndices.length;
+      isFlipped = false;
+      renderFlashcardCardOnly();
+    }
+
+    function jumpToCard(itemIndex) {
+      if (appState.cardFilter !== `all`) {
+        appState.cardFilter = `all`;
+        buildDeck(false);
+      }
+      const pos = deckIndices.indexOf(itemIndex);
+      if (pos !== -1) {
+        deckPos = pos;
+        isFlipped = true;
+        renderFlashcardSection();
+        const shell = document.getElementById(`flashcard-shell`);
+        if (shell) shell.scrollIntoView({ behavior: `smooth`, block: `center` });
+      }
+    }
+
+    function toggleMastery(targetStatus) {
+      if (deckIndices.length === 0) return;
+      const unit = getCurrentUnit();
+      const idx = deckIndices[deckPos];
+      const key = itemKey(unit.id, idx);
+      if (appState.mastery[key] === targetStatus) {
+        delete appState.mastery[key];
+      } else {
+        appState.mastery[key] = targetStatus;
+      }
+      renderMetrics();
+      renderSidebar();
+      renderFlashcardCardOnly();
+      renderVocabTable();
+      persistState();
+    }
+
+    function speakText(text) {
+      const statusEl = document.getElementById(`speech-status`);
+      if (!(`speechSynthesis` in window)) {
+        if (statusEl) statusEl.textContent = appState.scriptMode === `trad` ? `此瀏覽器不支援語音朗讀` : `此浏览器不支持语音朗读`;
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const clean = text.replace(/…/g, ``).replace(/\.\.\./g, ``).split(`/`)[0].trim();
+      const utter = new SpeechSynthesisUtterance(clean);
+      utter.lang = appState.scriptMode === `trad` ? `zh-TW` : `zh-CN`;
+      utter.rate = 0.9;
+      if (statusEl) statusEl.textContent = appState.scriptMode === `trad` ? `正在朗讀…` : `正在朗读…`;
+      utter.onend = () => {
+        if (statusEl) statusEl.textContent = ``;
+      };
+      utter.onerror = () => {
+        if (statusEl) statusEl.textContent = ``;
+      };
+      window.speechSynthesis.speak(utter);
+    }
+
+    function speakCurrentWord() {
+      if (deckIndices.length === 0) return;
+      const unit = getCurrentUnit();
+      const item = unit.items[deckIndices[deckPos]];
+      speakText(getWordText(item));
+    }
+
+    function speakQuizWord() {
+      if (!quizQuestions[quizPos]) return;
+      speakText(getWordText(quizQuestions[quizPos].item));
+    }
+
+    function handleResetProgress(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = t(`resetArmed`);
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = t(`resetDefault`);
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = t(`resetDefault`);
+      appState.mastery = {};
+      appState.quizScores = {};
+      buildDeck(false);
+      renderAll();
+      persistState();
+    }
+
+    /* Quiz Logic */
+    function startUnitQuiz() {
+      const unit = getCurrentUnit();
+      const indices = unit.items.map((_, i) => i);
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = indices[i];
+        indices[i] = indices[j];
+        indices[j] = tmp;
+      }
+      const qCount = Math.min(10, indices.length);
+      const selected = indices.slice(0, qCount);
+      quizQuestions = selected.map(correctIdx => {
+        const pool = indices.filter(idx => idx !== correctIdx);
+        const distractors = pool.slice(0, 3);
+        const optIndices = [correctIdx].concat(distractors);
+        for (let i = optIndices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const tmp = optIndices[i];
+          optIndices[i] = optIndices[j];
+          optIndices[j] = tmp;
+        }
+        return {
+          correctIdx,
+          item: unit.items[correctIdx],
+          options: optIndices.map(oi => ({ idx: oi, item: unit.items[oi] }))
+        };
+      });
+      quizPos = 0;
+      quizAnswers = [];
+      quizLocked = false;
+
+      const activeView = document.getElementById(`quiz-active-view`);
+      const resultView = document.getElementById(`quiz-result-view`);
+      if (activeView) activeView.hidden = false;
+      if (resultView) resultView.hidden = true;
+      renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+      const q = quizQuestions[quizPos];
+      if (!q) return;
+      const total = quizQuestions.length;
+      const correctCount = quizAnswers.filter(a => a.isCorrect).length;
+
+      const counterEl = document.getElementById(`quiz-q-counter`);
+      const fillEl = document.getElementById(`quiz-progress-fill`);
+      const scoreEl = document.getElementById(`quiz-live-score`);
+      const wordEl = document.getElementById(`quiz-word`);
+      const subEl = document.getElementById(`quiz-sub`);
+      const typeEl = document.getElementById(`quiz-q-type`);
+      const gridEl = document.getElementById(`quiz-options-grid`);
+      const fbBar = document.getElementById(`quiz-feedback-bar`);
+
+      if (counterEl) counterEl.textContent = appState.scriptMode === `trad` ? `第 ${quizPos + 1} / ${total} 題` : `第 ${quizPos + 1} / ${total} 题`;
+      if (fillEl) fillEl.style.width = `${Math.round(((quizPos + 1) / total) * 100)}%`;
+      if (scoreEl) scoreEl.textContent = appState.scriptMode === `trad` ? `得分：${correctCount}` : `得分：${correctCount}`;
+      if (typeEl) typeEl.textContent = t(`quizPrompt`);
+      if (wordEl) wordEl.textContent = getWordText(q.item);
+      if (subEl) subEl.textContent = q.item[4] ? q.item[4] : ``;
+      if (fbBar) fbBar.hidden = true;
+
+      if (gridEl) {
+        const letters = [`A`, `B`, `C`, `D`];
+        gridEl.innerHTML = q.options.map((opt, i) => `
+          <button type="button" class="quiz-option-btn" data-opt-idx="${opt.idx}" onclick="submitQuizOption(${opt.idx})">
+            <span class="option-letter">${letters[i]}</span>
+            <span><strong>${opt.item[2]}</strong> — ${opt.item[3]}</span>
+          </button>
+        `).join(``);
+      }
+    }
+
+    function submitQuizOption(chosenIdx) {
+      if (quizLocked) return;
+      quizLocked = true;
+      const q = quizQuestions[quizPos];
+      const isCorrect = chosenIdx === q.correctIdx;
+      quizAnswers.push({
+        word: getWordText(q.item),
+        pinyin: q.item[2],
+        eng: q.item[3],
+        isCorrect,
+        chosenItem: q.options.find(o => o.idx === chosenIdx).item
+      });
+
+      const gridEl = document.getElementById(`quiz-options-grid`);
+      if (gridEl) {
+        const btns = gridEl.querySelectorAll(`.quiz-option-btn`);
+        btns.forEach(btn => {
+          btn.disabled = true;
+          const idx = Number(btn.getAttribute(`data-opt-idx`));
+          if (idx === q.correctIdx) btn.classList.add(`is-correct`);
+          else if (idx === chosenIdx && !isCorrect) btn.classList.add(`is-wrong`);
+        });
+      }
+
+      const fbBar = document.getElementById(`quiz-feedback-bar`);
+      const fbText = document.getElementById(`quiz-feedback-text`);
+      const nextBtn = document.getElementById(`btn-quiz-next`);
+      if (fbBar) {
+        fbBar.hidden = false;
+        fbBar.className = `quiz-feedback-bar ${isCorrect ? `is-correct` : `is-wrong`}`;
+      }
+      if (fbText) {
+        const prefix = isCorrect
+          ? (appState.scriptMode === `trad` ? `答對了！` : `答对了！`)
+          : (appState.scriptMode === `trad` ? `答錯了。正解：` : `答错了。正解：`);
+        fbText.textContent = isCorrect ? `${prefix} ${q.item[2]} — ${q.item[3]}` : `${prefix} ${q.item[2]} — ${q.item[3]}`;
+      }
+      if (nextBtn) {
+        nextBtn.textContent = quizPos + 1 >= quizQuestions.length ? t(`quizFinish`) : t(`quizNext`);
+      }
+      const scoreEl = document.getElementById(`quiz-live-score`);
+      if (scoreEl) {
+        const correctCount = quizAnswers.filter(a => a.isCorrect).length;
+        scoreEl.textContent = `得分：${correctCount}`;
+      }
+    }
+
+    function nextQuizQuestion() {
+      quizLocked = false;
+      if (quizPos + 1 < quizQuestions.length) {
+        quizPos++;
+        renderQuizQuestion();
+      } else {
+        finishUnitQuiz();
+      }
+    }
+
+    function finishUnitQuiz() {
+      const unit = getCurrentUnit();
+      const correctCount = quizAnswers.filter(a => a.isCorrect).length;
+      const pct = Math.round((correctCount / quizQuestions.length) * 100);
+      const prev = appState.quizScores[unit.id] || { best: 0, attempts: 0 };
+      appState.quizScores[unit.id] = {
+        best: Math.max(prev.best, pct),
+        attempts: prev.attempts + 1
+      };
+      persistState();
+      renderMetrics();
+      renderSidebar();
+
+      const activeView = document.getElementById(`quiz-active-view`);
+      const resultView = document.getElementById(`quiz-result-view`);
+      if (activeView) activeView.hidden = true;
+      if (resultView) resultView.hidden = false;
+
+      const scoreBig = document.getElementById(`result-score-big`);
+      const summaryEl = document.getElementById(`result-summary-text`);
+      const reviewList = document.getElementById(`quiz-review-list`);
+
+      if (scoreBig) scoreBig.textContent = `${pct}%`;
+      if (summaryEl) {
+        summaryEl.textContent = appState.scriptMode === `trad`
+          ? `${getUnitTitle(unit)}：共 ${quizQuestions.length} 題，答對 ${correctCount} 題。`
+          : `${getUnitTitle(unit)}：共 ${quizQuestions.length} 题，答对 ${correctCount} 题。`;
+      }
+      if (reviewList) {
+        reviewList.innerHTML = quizAnswers.map((ans, i) => `
+          <div class="review-row">
+            <div>
+              <div class="review-word">${i + 1}. ${ans.word} <span style="font-weight: 500; color: var(--primary); font-size: 0.9375rem;">${ans.pinyin}</span></div>
+              <div class="review-detail">${ans.eng}</div>
+            </div>
+            <span class="status-tag ${ans.isCorrect ? `is-mastered` : ``}" style="${ans.isCorrect ? `` : `background: var(--error-container); color: var(--error);`}">
+              ${ans.isCorrect ? (appState.scriptMode === `trad` ? `正確` : `正确`) : (appState.scriptMode === `trad` ? `誤選：${ans.chosenItem[2]}` : `误选：${ans.chosenItem[2]}`)}
+            </span>
+          </div>
+        `).join(``);
+      }
+    }
+
+    /* Renderers */
+    function renderStaticUI() {
+      const map = [
+        [`ui-eyebrow`, `eyebrow`],
+        [`ui-title`, `title`],
+        [`ui-subtitle`, `subtitle`],
+        [`ui-script-label`, `scriptLabel`],
+        [`ui-total-label`, `totalLabel`],
+        [`ui-mobile-unit-label`, `mobileUnitLabel`],
+        [`ui-sidebar-title`, `sidebarTitle`],
+        [`sidebar-unit-count`, `unitCount`],
+        [`tab-flashcards`, `tabFlash`],
+        [`tab-quiz`, `tabQuiz`],
+        [`ui-m1-label`, `m1Label`],
+        [`ui-m2-label`, `m2Label`],
+        [`ui-m2-sub`, `m2Sub`],
+        [`ui-m3-label`, `m3Label`],
+        [`filter-all`, `filterAll`],
+        [`filter-review`, `filterReview`],
+        [`filter-unmastered`, `filterUnmastered`],
+        [`btn-shuffle`, `shuffle`],
+        [`empty-state-msg`, `emptyMsg`],
+        [`btn-show-all-cards`, `showAllBtn`],
+        [`card-flip-hint`, `flipHint`],
+        [`btn-flip-explicit`, `flipBtn`],
+        [`btn-speak`, `speakBtn`],
+        [`btn-prev`, `prevBtn`],
+        [`btn-next`, `nextBtn`],
+        [`btn-mark-review`, `markReview`],
+        [`btn-mark-mastered`, `markMastered`],
+        [`ui-list-title`, `listTitle`],
+        [`ui-search-label`, `searchLabel`],
+        [`th-word`, `thWord`],
+        [`th-pinyin`, `thPinyin`],
+        [`th-eng`, `thEng`],
+        [`th-status`, `thStatus`],
+        [`btn-quiz-speak`, `quizListen`],
+        [`ui-result-kicker`, `resultKicker`],
+        [`btn-retake-quiz`, `retake`],
+        [`btn-back-study`, `backStudy`],
+        [`ui-review-heading`, `reviewHeading`],
+        [`ui-source-note`, `sourceNote`]
+      ];
+      map.forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = t(key);
+      });
+      const resetBtn = document.getElementById(`btn-reset-progress`);
+      if (resetBtn && resetBtn.dataset.armed !== `true`) {
+        resetBtn.textContent = t(`resetDefault`);
+      }
+      const searchEl = document.getElementById(`vocab-search`);
+      if (searchEl) searchEl.placeholder = t(`searchPlaceholder`);
+    }
+
+    function renderSidebar() {
+      const listEl = document.getElementById(`unit-list`);
+      const mobileSel = document.getElementById(`mobile-unit-select`);
+      if (listEl) {
+        listEl.innerHTML = UNITS.map(u => {
+          let mCount = 0;
+          for (let i = 0; i < u.items.length; i++) {
+            if (appState.mastery[itemKey(u.id, i)] === `mastered`) mCount++;
+          }
+          const isComplete = mCount === u.items.length;
+          return `
+            <li>
+              <button type="button" class="unit-item-btn" aria-current="${u.id === appState.currentUnitId}" onclick="selectUnit('${u.id}')">
+                <span class="unit-num">${u.num}</span>
+                <span class="unit-name">${getUnitTitle(u)}</span>
+                <span class="unit-badge ${isComplete ? `is-complete` : ``}">${mCount}/${u.items.length}</span>
+              </button>
+            </li>
+          `;
+        }).join(``);
+      }
+      if (mobileSel) {
+        mobileSel.innerHTML = UNITS.map(u => `
+          <option value="${u.id}" ${u.id === appState.currentUnitId ? `selected` : ``}>${u.num} ${getUnitTitle(u)} (${u.enTitle})</option>
+        `).join(``);
+      }
+    }
+
+    function renderUnitBanner() {
+      const unit = getCurrentUnit();
+      const kicker = document.getElementById(`unit-kicker`);
+      const heading = document.getElementById(`unit-heading`);
+      const desc = document.getElementById(`unit-desc`);
+      if (kicker) kicker.textContent = appState.scriptMode === `trad` ? `單元 ${unit.num} · ${unit.enTitle}` : `单元 ${unit.num} · ${unit.enTitle}`;
+      if (heading) heading.textContent = getUnitTitle(unit);
+      if (desc) desc.textContent = getUnitDesc(unit);
+    }
+
+    function renderMetrics() {
+      let totalWords = 0;
+      let totalMastered = 0;
+      UNITS.forEach(u => {
+        totalWords += u.items.length;
+        for (let i = 0; i < u.items.length; i++) {
+          if (appState.mastery[itemKey(u.id, i)] === `mastered`) totalMastered++;
+        }
+      });
+      const overallEl = document.getElementById(`overall-mastered-text`);
+      if (overallEl) overallEl.textContent = `${totalMastered} / ${totalWords}`;
+
+      const unit = getCurrentUnit();
+      let uMastered = 0;
+      let uReview = 0;
+      for (let i = 0; i < unit.items.length; i++) {
+        const st = appState.mastery[itemKey(unit.id, i)];
+        if (st === `mastered`) uMastered++;
+        else if (st === `review`) uReview++;
+      }
+      const pct = Math.round((uMastered / unit.items.length) * 100);
+      const m1 = document.getElementById(`metric-mastered`);
+      const m1Pct = document.getElementById(`metric-mastered-pct`);
+      const m2 = document.getElementById(`metric-reviewing`);
+      const m3 = document.getElementById(`metric-best-score`);
+      const m3Sub = document.getElementById(`metric-attempts`);
+
+      if (m1) m1.textContent = `${uMastered} / ${unit.items.length}`;
+      if (m1Pct) m1Pct.textContent = `${pct}% ${appState.scriptMode === `trad` ? `完成` : `完成`}`;
+      if (m2) m2.textContent = String(uReview);
+
+      const qInfo = appState.quizScores[unit.id];
+      if (qInfo && qInfo.attempts > 0) {
+        if (m3) m3.textContent = `${qInfo.best}%`;
+        if (m3Sub) m3Sub.textContent = appState.scriptMode === `trad` ? `已測驗 ${qInfo.attempts} 次` : `已测验 ${qInfo.attempts} 次`;
+      } else {
+        if (m3) m3.textContent = `—`;
+        if (m3Sub) m3Sub.textContent = t(`noAttempts`);
+      }
+    }
+
+    function renderFlashcardSection() {
+      [`all`, `review`, `unmastered`].forEach(f => {
+        const btn = document.getElementById(`filter-${f}`);
+        if (btn) btn.setAttribute(`aria-pressed`, String(appState.cardFilter === f));
+      });
+
+      const emptyEl = document.getElementById(`flashcard-empty`);
+      const activeEl = document.getElementById(`flashcard-active-area`);
+      if (deckIndices.length === 0) {
+        if (emptyEl) emptyEl.hidden = false;
+        if (activeEl) activeEl.hidden = true;
+      } else {
+        if (emptyEl) emptyEl.hidden = true;
+        if (activeEl) activeEl.hidden = false;
+        renderFlashcardCardOnly();
+      }
+      renderVocabTable();
+    }
+
+    function renderFlashcardCardOnly() {
+      if (deckIndices.length === 0) return;
+      const unit = getCurrentUnit();
+      const idx = deckIndices[deckPos];
+      const item = unit.items[idx];
+      const status = appState.mastery[itemKey(unit.id, idx)] || `none`;
+
+      const counterEl = document.getElementById(`card-counter`);
+      const subtagEl = document.getElementById(`card-subtag`);
+      const statusTagEl = document.getElementById(`card-status-tag`);
+      const hanziEl = document.getElementById(`card-hanzi`);
+      const pinyinEl = document.getElementById(`card-pinyin`);
+      const engEl = document.getElementById(`card-english`);
+      const ansBlock = document.getElementById(`card-answer-block`);
+      const hintEl = document.getElementById(`card-flip-hint`);
+      const btnRev = document.getElementById(`btn-mark-review`);
+      const btnMast = document.getElementById(`btn-mark-mastered`);
+
+      if (counterEl) counterEl.textContent = `${deckPos + 1} / ${deckIndices.length}`;
+      if (subtagEl) {
+        if (item[4]) {
+          subtagEl.hidden = false;
+          subtagEl.textContent = item[4];
+        } else {
+          subtagEl.hidden = true;
+        }
+      }
+      if (statusTagEl) {
+        statusTagEl.className = `status-tag`;
+        if (status === `mastered`) {
+          statusTagEl.classList.add(`is-mastered`);
+          statusTagEl.textContent = t(`markedMastered`);
+        } else if (status === `review`) {
+          statusTagEl.classList.add(`is-review`);
+          statusTagEl.textContent = t(`markedReview`);
+        } else {
+          statusTagEl.textContent = t(`unmarked`);
+        }
+      }
+      if (hanziEl) hanziEl.textContent = getWordText(item);
+      if (pinyinEl) pinyinEl.textContent = item[2];
+      if (engEl) engEl.textContent = item[3];
+      if (ansBlock) ansBlock.hidden = !isFlipped;
+      if (hintEl) hintEl.hidden = isFlipped;
+      if (btnRev) btnRev.setAttribute(`aria-pressed`, String(status === `review`));
+      if (btnMast) btnMast.setAttribute(`aria-pressed`, String(status === `mastered`));
+    }
+
+    function renderVocabTable() {
+      const unit = getCurrentUnit();
+      const tbody = document.getElementById(`vocab-table-body`);
+      const searchEl = document.getElementById(`vocab-search`);
+      if (!tbody) return;
+      const q = searchEl ? searchEl.value.trim().toLowerCase() : ``;
+
+      const rows = [];
+      for (let i = 0; i < unit.items.length; i++) {
+        const item = unit.items[i];
+        const word = getWordText(item);
+        const match = !q ||
+          item[0].toLowerCase().includes(q) ||
+          item[1].toLowerCase().includes(q) ||
+          item[2].toLowerCase().includes(q) ||
+          item[3].toLowerCase().includes(q);
+        if (!match) continue;
+        const st = appState.mastery[itemKey(unit.id, i)] || `none`;
+        const stLabel = st === `mastered` ? t(`markedMastered`) : st === `review` ? t(`markedReview`) : t(`unmarked`);
+        const stClass = st === `mastered` ? `is-mastered` : st === `review` ? `is-review` : ``;
+        rows.push(`
+          <tr>
+            <td><button type="button" class="vocab-row-btn" onclick="jumpToCard(${i})">${word}</button></td>
+            <td style="font-family: var(--font-latin);">${item[2]}</td>
+            <td style="font-family: var(--font-latin); color: var(--on-surface-variant);">${item[3]}</td>
+            <td><span class="status-tag ${stClass}">${stLabel}</span></td>
+          </tr>
+        `);
+      }
+      tbody.innerHTML = rows.join(``);
+    }
+
+    function renderAll() {
+      renderStaticUI();
+      renderSidebar();
+      renderUnitBanner();
+      renderMetrics();
+      renderFlashcardSection();
+      if (appState.mode === `quiz` && quizQuestions.length > 0 && quizPos < quizQuestions.length) {
+        const activeView = document.getElementById(`quiz-active-view`);
+        if (activeView && !activeView.hidden) {
+          renderQuizQuestion();
+        }
+      }
+    }
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = Object.assign(appState, saved);
+          }
+        } catch (err) {
+          // Use defaults
+        }
+      }
+      document.documentElement.lang = appState.scriptMode === `trad` ? `zh-Hant` : `zh-Hans`;
+      const btnTrad = document.getElementById(`btn-trad`);
+      const btnSimp = document.getElementById(`btn-simp`);
+      if (btnTrad) btnTrad.setAttribute(`aria-pressed`, String(appState.scriptMode === `trad`));
+      if (btnSimp) btnSimp.setAttribute(`aria-pressed`, String(appState.scriptMode === `simp`));
+
+      buildDeck(false);
+      setMode(appState.mode);
+      renderAll();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
